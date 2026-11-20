@@ -1774,6 +1774,15 @@ hr {
   color: var(--ink-2);
 }
 
+.next-card__thumb img {
+  max-width: 78%;
+  max-height: 78%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
 /* share row */
 .share-row {
   display: flex;
