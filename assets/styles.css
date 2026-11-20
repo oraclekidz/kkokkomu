@@ -13,7 +13,7 @@
   --ink: #141413;
   --ink-2: #3d3d39;
   --ink-3: #6b6b63;
-  --ink-4: #97978e;
+  --ink-4: #7c7c73;
   --hair: rgba(20, 20, 19, 0.08);
   --hair-strong: rgba(20, 20, 19, 0.16);
   --accent: #b0492d;
@@ -248,10 +248,11 @@ hr {
   gap: 16px;
   padding-block: 9px;
   border-bottom: 1px solid var(--hair);
-  font-size: 10.5px;
-  letter-spacing: 0.16em;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--ink-4);
+  color: var(--ink-2);
 }
 
 .masthead__tagline {
@@ -261,7 +262,9 @@ hr {
 }
 
 .masthead__en {
-  color: var(--ink-4);
+  color: var(--ink-3);
+  letter-spacing: 0.08em;
+  text-transform: none;
 }
 
 .masthead__issue {
@@ -722,6 +725,29 @@ hr {
   color: var(--ink);
 }
 
+/* real patent drawing (public-domain source scan, cropped) */
+.plate.plate--real .plate__frame {
+  aspect-ratio: auto;
+  padding: clamp(20px, 3.4vw, 36px);
+  background-image: none;
+  background-color: var(--paper-warm);
+}
+
+.plate.plate--real .plate__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+  mix-blend-mode: multiply;
+  filter: contrast(1.03);
+}
+
+.article-figure.plate--real .plate__img {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
 .plate__corner {
   position: absolute;
   width: 11px;
@@ -776,8 +802,9 @@ hr {
 
 .plate__cap {
   margin-top: 12px;
-  font-size: 11.5px;
-  color: var(--ink-4);
+  font-size: 12px;
+  color: var(--ink-3);
+  line-height: 1.6;
   letter-spacing: 0.01em;
   display: flex;
   justify-content: space-between;
@@ -944,8 +971,35 @@ hr {
   transition: transform 0.6s var(--ease);
 }
 
-.story-card__link:hover .story-card__thumb svg {
-  transform: scale(1.06);
+.story-card__thumb img {
+  width: auto;
+  height: auto;
+  max-width: 80%;
+  max-height: 60%;
+  margin-top: 12px;
+  margin-bottom: 16px;
+  mix-blend-mode: multiply;
+  transition: transform 0.6s var(--ease);
+}
+
+.story-card__link:hover .story-card__thumb img {
+  transform: scale(1.04);
+}
+
+.story-card__figcap {
+  position: absolute;
+  bottom: 9px;
+  left: 11px;
+  right: 11px;
+  font-size: 9px;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--ink-3);
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .story-card__thumb .plate__tag {
@@ -1009,10 +1063,10 @@ hr {
 }
 
 .footer-col__title {
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-4);
+  color: var(--ink-3);
   margin-bottom: 14px;
 }
 
@@ -1039,16 +1093,21 @@ hr {
   flex-wrap: wrap;
   padding-block: 20px;
   border-top: 1px solid var(--hair);
-  font-size: 11.5px;
-  color: var(--ink-4);
+  font-size: 12.5px;
+  color: var(--ink-2);
   letter-spacing: 0.01em;
+}
+
+.footer-bottom .num {
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
 .footer-note {
   padding-bottom: 28px;
-  font-size: 11.5px;
-  line-height: 1.7;
-  color: var(--ink-4);
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--ink-3);
   max-width: 720px;
   word-break: keep-all;
 }
@@ -2176,6 +2235,11 @@ hr {
     width: 62%;
   }
 
+  .article-figure .plate__img {
+    max-width: 94%;
+    max-height: 88%;
+  }
+
   .related__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2198,13 +2262,14 @@ hr {
   }
 
   .masthead {
-    font-size: 9.5px;
-    padding-block: 8px;
-    gap: 10px;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    padding-block: 9px;
+    gap: 8px;
   }
 
   .masthead__tagline {
-    letter-spacing: 0.1em;
+    letter-spacing: 0.06em;
   }
 
   .masthead__en {
@@ -2297,7 +2362,7 @@ hr {
   }
 
   .story-card__link {
-    grid-template-columns: minmax(0, 1fr) 92px;
+    grid-template-columns: minmax(0, 1fr) 108px;
     gap: 16px;
     padding-block: 22px;
   }
@@ -2320,6 +2385,17 @@ hr {
 
   .story-card__thumb {
     aspect-ratio: 1;
+  }
+
+  .story-card__thumb img {
+    max-width: 90%;
+    max-height: 78%;
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+
+  .story-card__figcap {
+    display: none;
   }
 
   .section-head {
