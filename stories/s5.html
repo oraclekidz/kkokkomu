@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>S5. ‘밀어서 잠금 해제’는 왜 법정에서 먼저 죽었나 — 꼬꼬무</title>
+<meta name="description" content="애플 ‘밀어서 잠금 해제’ 특허 US 8,046,721의 등록과 무효. 애플 대 삼성 소송, 네오노드 N1 선행기술, 그리고 페이스 ID.">
+<meta name="theme-color" content="#faf9f6">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kkokkomu.com/stories/s5.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="꼬꼬무 · 특허 이야기">
+<meta property="og:title" content="‘밀어서 잠금 해제’는 왜 법정에서 먼저 죽었나">
+<meta property="og:description" content="2011년 특허가 된 ‘밀어서 잠금 해제’. 2016년 특허심판원이 무효로 판단한 이유는 2003년의 한 스웨덴 휴대폰이었다.">
+<meta property="og:url" content="https://kkokkomu.com/stories/s5.html">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2026-11-20T09:00:00+09:00">
+<meta property="article:section" content="브랜드 비화">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://kkokkomu.oraclekidz.workers.dev/assets/og-story.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="‘밀어서 잠금 해제’는 왜 법정에서 먼저 죽었나 — 꼬꼬무">
+<meta name="twitter:image" content="https://kkokkomu.oraclekidz.workers.dev/assets/og-story.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23141413'/%3E%3Ccircle cx='30' cy='29' r='13' fill='none' stroke='%23FAF9F6' stroke-width='3'/%3E%3Ccircle cx='45' cy='44' r='4.5' fill='%23B0492D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="stylesheet" href="../assets/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "‘밀어서 잠금 해제’는 왜 법정에서 먼저 죽었나",
+  "description": "애플 ‘밀어서 잠금 해제’ 특허 US 8,046,721의 등록과 무효. 애플 대 삼성 소송, 네오노드 N1 선행기술, 그리고 페이스 ID.",
+  "inLanguage": "ko-KR",
+  "datePublished": "2026-11-20",
+  "author": {
+    "@type": "Organization",
+    "name": "꼬꼬무 편집부"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "꼬꼬무 · 특허 이야기"
+  },
+  "mainEntityOfPage": "https://kkokkomu.com/stories/s5.html",
+  "about": {
+    "@type": "Patent",
+    "name": "Unlocking a device by performing gestures on an unlock image",
+    "identifier": "US 8,046,721"
+  }
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FBWC0HSGHM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FBWC0HSGHM');
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.4 15.4 21 21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13.5 6.5 19.5 12l-6 5.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7.8v4.6l3 1.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19.5 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13.5a4 4 0 0 0 5.7 0l2.8-2.8a4 4 0 0 0-5.6-5.7l-1.4 1.3M14 10.5a4 4 0 0 0-5.7 0L5.5 13.3a4 4 0 0 0 5.6 5.7l1.4-1.3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-kakao" viewBox="0 0 24 24"><path d="M12 3.4c-4.8 0-8.6 3-8.6 6.7 0 2.4 1.6 4.5 4 5.8l-.9 3.3c-.1.4.3.6.6.4l3.7-2.5c.4 0 .8.1 1.2.1 4.8 0 8.6-3 8.6-6.7S16.8 3.4 12 3.4Z" fill="currentColor"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="12" r="2.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="18.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8.3 10.7 15.7 6.8M8.3 13.3l7.4 3.9" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.2A2.2 2.2 0 0 1 6.2 3H20v15.4H6.2A2.2 2.2 0 0 0 4 20.6V5.2Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 7.5h8M8 11h5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M9.5 5.5 16 12l-6.5 6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m3.8 6.8 8.2 6.4 8.2-6.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+
+    <!-- HERO: cup sleeve patent plate -->
+    <symbol id="ill-sleeve" viewBox="0 0 420 470">
+      <defs>
+        <pattern id="p-dimple" width="9" height="9" patternUnits="userSpaceOnUse">
+          <circle cx="4.5" cy="4.5" r="1.25" fill="currentColor" opacity=".5"/>
+        </pattern>
+        <marker id="p-arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M1 5h8M6 1.6 9 5l-3 3.4" fill="none" stroke="currentColor" stroke-width="1"/>
+        </marker>
+    
+    <symbol id="ill-charter" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M30 20h60v64H30z"/>
+        <path d="M30 20c-7 0-7 9 0 9M90 20c7 0 7 9 0 9" opacity=".45"/>
+        <path d="M38 32h44M38 40h44M38 48h30M38 56h36M38 64h22" opacity=".7"/>
+        <path d="M30 84c2 8 14 12 30 12s28-4 30-12" opacity=".5"/>
+        <circle cx="60" cy="92" r="12"/>
+        <path d="M60 85v14M55 89h10" opacity=".55"/>
+        <path d="M18 106h84" stroke-dasharray="1 5" opacity=".35"/>
+      </g>
+    </symbol>
+    <symbol id="ill-map" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M16 26l29-9 30 9 29-9v70l-29 9-30-9-29 9z"/>
+        <path d="M45 17v70M75 26v70" opacity=".55"/>
+        <path d="M16 62c10-6 19 5 30-1s19 6 29 0 20-4 29 2" opacity=".45"/>
+        <circle cx="60" cy="46" r="10"/>
+        <path d="M60 31v5M60 56v5M45 46h5M70 46h5" opacity=".6"/>
+        <path d="M60 38l3.4 9.6L60 45l-3.4 2.6z" fill="currentColor" stroke="none"/>
+        <path d="M16 104h88" stroke-dasharray="1 5" opacity=".35"/>
+      </g>
+    </symbol>
+    <symbol id="ill-flask" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M50 18h20v19l17 45a9 9 0 0 1-8 12H41a9 9 0 0 1-8-12l17-45z"/>
+        <path d="M44 72h32" opacity=".55"/>
+        <path d="M33 84c6-3 12 3 18 0s13 3 19 0 12 3 17 0" opacity=".45"/>
+        <path d="M44 14h32" opacity=".7"/>
+        <circle cx="53" cy="89" r="2.6" fill="currentColor" stroke="none"/>
+        <circle cx="66" cy="92" r="1.9" fill="currentColor" stroke="none"/>
+        <circle cx="60" cy="80" r="1.5" fill="currentColor" stroke="none"/>
+      </g>
+    </symbol>
+  </defs>
+      <g fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round">
+        <!-- steam -->
+        <g opacity=".28" stroke-width="1">
+          <path d="M180 106c-7-11 7-17 0-28"/>
+          <path d="M210 100c-7-11 7-17 0-28"/>
+          <path d="M240 106c-7-11 7-17 0-28"/>
+        </g>
+        <!-- cup -->
+        <ellipse cx="210" cy="132" rx="72" ry="15" opacity=".9"/>
+        <ellipse cx="210" cy="132" rx="63" ry="10.5" stroke-dasharray="2 4" opacity=".35"/>
+        <path d="M138 132 166 404"/>
+        <path d="M282 132 254 404"/>
+        <path d="M166 404a44 10 0 0 0 88 0"/>
+        <path d="M166 404a44 10 0 0 1 88 0" stroke-dasharray="2 4" opacity=".35"/>
+        <!-- sleeve -->
+        <path d="M134 212c34 10 118 10 152 0l-8 118c-34 10-102 10-136 0Z" stroke="#b0492d" stroke-width="1.5"/>
+        <path d="M134 212c34 10 118 10 152 0l-8 118c-34 10-102 10-136 0Z" fill="url(#p-dimple)" stroke="none"/>
+        <path d="M128 209c3 2 5 4 6 7M288 209c-3 2-5 4-6 7" opacity=".55"/>
+        <!-- shadow -->
+        <ellipse cx="210" cy="418" rx="66" ry="12" stroke-dasharray="1 6" opacity=".3"/>
+        <!-- callouts -->
+        <g opacity=".75" stroke-width=".9">
+          <path d="M104 240h20l14 12"/>
+          <path d="M104 292h20l34 6"/>
+          <path d="M104 356h20l44 6"/>
+        </g>
+        <g opacity=".85">
+          <circle cx="92" cy="240" r="10.5" stroke-width=".9"/>
+          <circle cx="92" cy="292" r="10.5" stroke-width=".9"/>
+          <circle cx="92" cy="356" r="10.5" stroke-width=".9"/>
+        </g>
+        <g fill="currentColor" stroke="none" font-family="Instrument Serif, serif" font-size="10.5" text-anchor="middle" opacity=".8">
+          <text x="92" y="243.5">10</text>
+          <text x="92" y="295.5">46</text>
+          <text x="92" y="359.5">12</text>
+        </g>
+        <!-- dimension -->
+        <g opacity=".5" stroke-width=".9">
+          <path d="M312 212v118" stroke-dasharray="3 4"/>
+          <path d="M305 212h14M305 330h14"/>
+          <path d="M138 436h144" marker-start="url(#p-arw)" marker-end="url(#p-arw)"/>
+          <path d="M138 430v12M282 430v12"/>
+        </g>
+        <g fill="currentColor" stroke="none" font-family="Pretendard, sans-serif" font-size="8.5" letter-spacing="1" opacity=".55">
+          <text x="318" y="266">H 120</text>
+          <text x="318" y="277">mm</text>
+          <text x="210" y="456" text-anchor="middle">Ø 90 mm</text>
+          <text x="30" y="462" font-family="Instrument Serif, serif" font-size="9" letter-spacing="1.4" opacity=".7">CUP HOLDER · US 5,425,497</text>
+        </g>
+      </g>
+    </symbol>
+
+    <!-- card motifs -->
+    <symbol id="ill-brick" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <rect x="20" y="52" width="80" height="34"/>
+        <path d="M20 52 34 36h72l-6 16"/>
+        <path d="M100 52v34"/>
+        <circle cx="36" cy="45" r="6"/><circle cx="54" cy="45" r="6"/><circle cx="72" cy="45" r="6"/><circle cx="90" cy="45" r="6"/>
+        <path d="M28 62h64M28 70h64" opacity=".45"/>
+        <path d="M14 96h92" stroke-dasharray="1 5" opacity=".35"/>
+      </g>
+    </symbol>
+    <symbol id="ill-cyclone" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <circle cx="58" cy="58" r="40"/>
+        <circle cx="58" cy="58" r="26" stroke-dasharray="3 4" opacity=".7"/>
+        <circle cx="58" cy="58" r="11"/>
+        <path d="M58 18a40 40 0 0 1 0 80" opacity=".5"/>
+        <circle cx="58" cy="58" r="2.2" fill="currentColor" stroke="none"/>
+        <g opacity=".55"><circle cx="16" cy="96" r="2.4"/><circle cx="28" cy="102" r="2.4"/><circle cx="10" cy="108" r="2.4"/></g>
+      </g>
+    </symbol>
+    <symbol id="ill-note" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+        <path d="M24 20h54l20 20v60H24Z"/>
+        <path d="M78 20v20h20"/>
+        <path d="M34 54h50M34 66h50M34 78h32" opacity=".45"/>
+        <path d="M96 104h14M110 104v-14" stroke-dasharray="2 3" opacity=".5"/>
+      </g>
+    </symbol>
+    <symbol id="ill-waffle" viewBox="0 0 120 120">
+      <defs><pattern id="p-lattice" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <path d="M0 0h16M0 0v16" fill="none" stroke="currentColor" stroke-width="1.1" opacity=".55"/>
+      </pattern></defs>
+      <g fill="none" stroke="currentColor" stroke-width="1.1">
+        <path d="M18 34c0-9 6-14 16-14h52c10 0 16 5 16 14v44c0 9-6 14-16 14H34c-10 0-16-5-16-14Z"/>
+        <path d="M18 34c0-9 6-14 16-14h52c10 0 16 5 16 14v44c0 9-6 14-16 14H34c-10 0-16-5-16-14Z" fill="url(#p-lattice)" stroke="none"/>
+      </g>
+    </symbol>
+    <symbol id="ill-wheel" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <circle cx="58" cy="52" r="34"/>
+        <circle cx="58" cy="52" r="7"/>
+        <path d="M58 18v68M24 52h68M34 28l48 48M82 28 34 76" opacity=".45"/>
+        <path d="M10 94h100" stroke-width="1.6"/>
+        <path d="M18 88v6M30 88v6M42 88v6M54 88v6M66 88v6M78 88v6M90 88v6M102 88v6" opacity=".5"/>
+      </g>
+    </symbol>
+    <symbol id="ill-swing" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M14 18h92"/>
+        <path d="M46 18 32 86M74 18l14 68"/>
+        <path d="M30 86h48"/>
+        <path d="M40 86v8M68 86v8" opacity=".6"/>
+        <path d="M84 34c8 10 8 22 0 32" stroke-dasharray="2 4" opacity=".6"/>
+        <path d="M92 30c11 13 11 30 0 42" stroke-dasharray="2 4" opacity=".35"/>
+        <circle cx="54" cy="80" r="2.4" fill="currentColor" stroke="none"/>
+      </g>
+    </symbol>
+    <symbol id="ill-broken" viewBox="0 0 220 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+        <path d="M14 60h58M100 60h20M148 60h58" stroke-dasharray="4 6" opacity=".7"/>
+        <path d="M66 44c8 8 8 24 0 32" opacity=".5"/>
+        <path d="M108 40l-12 20 18 6-10 18" stroke-width="1.6"/>
+        <circle cx="14" cy="60" r="3"/><circle cx="206" cy="60" r="3"/>
+      </g>
+    </symbol>
+
+    <symbol id="ill-charter" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M30 20h60v64H30z"/>
+        <path d="M30 20c-7 0-7 9 0 9M90 20c7 0 7 9 0 9" opacity=".45"/>
+        <path d="M38 32h44M38 40h44M38 48h30M38 56h36M38 64h22" opacity=".7"/>
+        <path d="M30 84c2 8 14 12 30 12s28-4 30-12" opacity=".5"/>
+        <circle cx="60" cy="92" r="12"/>
+        <path d="M60 85v14M55 89h10" opacity=".55"/>
+        <path d="M18 106h84" stroke-dasharray="1 5" opacity=".35"/>
+      </g>
+    </symbol>
+    <symbol id="ill-map" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M16 26l29-9 30 9 29-9v70l-29 9-30-9-29 9z"/>
+        <path d="M45 17v70M75 26v70" opacity=".55"/>
+        <path d="M16 62c10-6 19 5 30-1s19 6 29 0 20-4 29 2" opacity=".45"/>
+        <circle cx="60" cy="46" r="10"/>
+        <path d="M60 31v5M60 56v5M45 46h5M70 46h5" opacity=".6"/>
+        <path d="M60 38l3.4 9.6L60 45l-3.4 2.6z" fill="currentColor" stroke="none"/>
+        <path d="M16 104h88" stroke-dasharray="1 5" opacity=".35"/>
+      </g>
+    </symbol>
+    <symbol id="ill-flask" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M50 18h20v19l17 45a9 9 0 0 1-8 12H41a9 9 0 0 1-8-12l17-45z"/>
+        <path d="M44 72h32" opacity=".55"/>
+        <path d="M33 84c6-3 12 3 18 0s13 3 19 0 12 3 17 0" opacity=".45"/>
+        <path d="M44 14h32" opacity=".7"/>
+        <circle cx="53" cy="89" r="2.6" fill="currentColor" stroke="none"/>
+        <circle cx="66" cy="92" r="1.9" fill="currentColor" stroke="none"/>
+        <circle cx="60" cy="80" r="1.5" fill="currentColor" stroke="none"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="masthead">
+      <p class="masthead__tagline">꼬리에 꼬리를 무는 특허 이야기 <span class="masthead__en">· Patent stories, retold</span></p>
+      <p class="masthead__issue num">ISSUE 01 — 2026. 11. 20</p>
+    </div>
+    <div class="header-main">
+      <a class="brand" href="../index.html" aria-label="꼬꼬무 특허 이야기, 홈">
+        <span class="brand__mark">꼬꼬무</span>
+        <span class="brand__sub">특허 이야기</span>
+      </a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a class="nav__link" href="../index.html">홈</a>
+        <a class="nav__link" href="../index.html#stories" aria-current="page">이야기</a>
+        <a class="nav__link" href="../about.html">소개</a>
+        <a class="nav__link" href="../contact.html">문의</a>
+      </nav>
+      <div class="header-tools">
+        <label class="search-field">
+          <svg aria-hidden="true"><use href="#i-search"/></svg>
+          <input type="search" placeholder="특허번호·브랜드 검색" aria-label="이야기 검색">
+        </label>
+        <span class="header-tools__divider" aria-hidden="true"></span>
+        <a class="icon-btn" href="../index.html#stories" aria-label="목록으로">
+          <svg aria-hidden="true"><use href="#i-book"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <article class="article">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <a href="../index.html">홈</a>
+        <svg aria-hidden="true"><use href="#i-chevron"/></svg>
+        <a href="../index.html#stories">브랜드 비화</a>
+        <svg aria-hidden="true"><use href="#i-chevron"/></svg>
+        <span aria-current="page">S5 · 밀어서 잠금 해제</span>
+      </nav>
+
+      <header class="article-head">
+        <div class="article-head__meta">
+          <span class="kicker kicker--plain">브랜드 비화</span>
+          <span class="dot" aria-hidden="true"></span>
+          <span class="badge">US 8,046,721</span>
+          <span class="dot" aria-hidden="true"></span>
+          <span>읽기 6분</span>
+          <span class="dot" aria-hidden="true"></span>
+          <time datetime="2026-11-20">2026. 11. 20</time>
+        </div>
+        <h1 class="article-title">‘밀어서 잠금 해제’는 왜 법정에서 먼저 죽었나</h1>
+        <p class="article-deck">2007년 1월, 스티브 잡스는 무대에서 손가락을 밀었다. 그 동작은 2011년 특허가 됐고, 2016년 미국 특허심판원에서 무효가 됐다. 기능은 그보다 먼저 사라졌다.</p>
+        <div class="article-byline">
+          <strong>꼬꼬무 편집부</strong>
+          <span aria-hidden="true">·</span>
+          <span>사료 대조 — USPTO 공개특허 · PTAB · 법원 보도</span>
+        </div>
+      </header>
+
+      <figure class="article-figure plate plate--real">
+        <div class="plate__frame">
+          <span class="plate__tag">FIG. 4A · 4B</span>
+          <span class="plate__tag plate__tag--left">UNLOCK IMAGE</span>
+          <img class="plate__img" src="../assets/patents/us8046721-fig4.png" alt="US 8,046,721 「Unlocking a device by performing gestures on an unlock image」 제4A·4B도 — 잠금 화면에서 손가락을 옮겨 잠금을 해제하는 두 상태를 그린 특허 원문 도면." width="988" height="1400" decoding="async">
+          <span class="plate__corner plate__corner--tl" aria-hidden="true"></span>
+          <span class="plate__corner plate__corner--tr" aria-hidden="true"></span>
+          <span class="plate__corner plate__corner--bl" aria-hidden="true"></span>
+          <span class="plate__corner plate__corner--br" aria-hidden="true"></span>
+        </div>
+        <figcaption>
+          <span>US 8,046,721 — FIG. 4A·4B (2011). 잠금 이미지(402)를 따라 손가락을 옮기면(404) 잠금이 풀린다. 4A와 4B는 미는 방향의 두 가지 예를 보여준다.</span>
+          <span>Google Patents 원문 도면</span>
+        </figcaption>
+      </figure>
+
+      <div class="prose" id="articleBody">
+        <p class="lede">2011년 10월 25일, 애플은 8,046,721번 특허를 받았다. 제목은 「Unlocking a device by performing gestures on an unlock image」— ‘잠금 이미지 위에서 제스처를 하여 기기의 잠금을 해제하는 방법’. 발명자는 임란 차우드리, 바스 오딩, 프레디 안주레스, 마르셀 반 오스. 2007년 1월 샌프란시스코 무대에서 보여준 그 동작이, 4년 뒤 문서가 됐다.</p>
+
+        <section class="act">
+          <div class="act__label"><span class="act__no">Act 01</span><span class="act__rule" aria-hidden="true"></span></div>
+          <h2 class="act__title">주머니 속 오작동을 막는 방법</h2>
+          <p>터치스크린이 처음 나왔을 때 가장 큰 문제는 오작동이었다. 주머니 속에서 화면이 손가락에 닿으면 전화가 걸리고, 사진이 지워지고, 배터리가 나갔다. 초기 스마트폰들은 측면의 작은 버튼으로 화면을 잠그고, 다시 버튼을 눌러 깨우는 방식을 썼다. 버튼은 작았고, 장갑을 낀 손에는 잘 눌리지 않았다.</p>
+          <p>애플의 디자인팀은 다른 답을 찾았다. 잠금을 푸는 동작 자체를 ‘일부러 해야 하는 일’로 만들면, 주머니 속 우연한 접촉으로는 풀리지 않는다. 화면 아래쪽에 막대를 그리고, 그 위에 손가락을 올려 끝까지 밀게 했다. 특허 도면의 402가 잠금 이미지, 404가 손가락이 움직이는 경로, 406이 그 경로를 따라 함께 움직이는 손잡이다. 4A와 4B는 미는 방향이 달라도 같은 결과가 나온다는 것을 보여준다.</p>
+          <p>이 특허의 청구항은 ‘밀어서 잠금 해제’라는 문구가 아니라, 화면에 잠금 이미지를 표시하고, 접촉이 그 이미지의 미리 정해진 영역에 있을 때만 잠금을 해제하는 ‘조건’을 규정한다. 그래서 경쟁사들이 문구를 바꾸거나 화살표를 없애도 쉽게 피할 수 없었다. 대신 그 조건이 너무 흔해지면 무효가 될 수 있었다.</p>
+        </section>
+
+        <section class="act">
+          <div class="act__label"><span class="act__no">Act 02</span><span class="act__rule" aria-hidden="true"></span></div>
+          <h2 class="act__title">소송에서 이기고, 심판에서 지다</h2>
+          <p>2011년 애플은 삼성을 상대로 소송을 냈다. 2012년 캘리포니아 배심원단은 삼성이 애플의 특허와 디자인을 침해했다며 약 10억 5천만 달러의 배상을 평결했다. ‘밀어서 잠금 해제’는 그 소송의 대표적인 특허 중 하나였다. 화면 위의 동작 하나가 수십억 달러의 쟁점이 된 것이다.</p>
+          <p>그러나 특허의 운명은 법원이 아니라 특허심판원(PTAB)에서 갈렸다. 삼성은 이 특허가 새롭지 않다는 무효 심판을 청구했고, 2016년 PTAB은 애플의 손을 들어주지 않았다. 핵심 선행기술은 2003년 스웨덴의 휴대폰 ‘네오노드 N1’이었다. 그 기기는 화면 아래에서 위로 손가락을 쓸어 올려 잠금을 푸는 방식을 이미 쓰고 있었다. 애플은 “잠금 이미지가 손가락을 따라 움직인다”는 차이를 내세웠지만, 심판부는 그것이 통상의 기술자에게 자명하다고 봤다.</p>
+          <p>연방순회항소법원이 이 판단을 확정하면서 특허는 사실상 끝났다. 아이러니는 그다음에 왔다. 2017년 아이폰 X가 홈 버튼을 없애고 페이스 ID를 도입하면서, ‘밀어서 잠금 해제’라는 동작 자체가 사라졌다. 특허가 죽은 뒤에 기능이 죽은 것이 아니라, 기능이 먼저 사라지고 특허가 뒤따라 죽은 셈이다.</p>
+
+          <div class="timeline">
+            <div class="timeline__head">
+              <h3 class="timeline__title">사건 연표 — 2005~2017</h3>
+              <span class="timeline__sub">Cupertino → 법정</span>
+            </div>
+            <ol class="timeline__items">
+              <li class="timeline__item">
+                <div class="timeline__year">2005<small>PRIORITY</small></div>
+                <div class="timeline__dot" aria-hidden="true"><i></i></div>
+                <div class="timeline__body">
+                  <h4>잠금 화면 설계 착수</h4>
+                  <p>이 특허가 주장하는 우선일. 이후 여러 출원으로 이어진다.</p>
+                </div>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__year">2007<small>STAGE</small></div>
+                <div class="timeline__dot" aria-hidden="true"><i></i></div>
+                <div class="timeline__body">
+                  <h4>1월, 아이폰 발표</h4>
+                  <p>무대에서 손가락으로 밀어 잠금을 푸는 동작을 시연한다.</p>
+                </div>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__year">2011<small>GRANTED</small></div>
+                <div class="timeline__dot" aria-hidden="true"><i></i></div>
+                <div class="timeline__body">
+                  <h4>10월 25일, US 8,046,721 등록</h4>
+                  <p>잠금 이미지와 제스처의 관계가 청구항으로 굳는다.</p>
+                </div>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__year">2012<small>VERDICT</small></div>
+                <div class="timeline__dot" aria-hidden="true"><i></i></div>
+                <div class="timeline__body">
+                  <h4>애플 대 삼성 배심 평결</h4>
+                  <p>약 10억 5천만 달러 배상 평결. ‘밀어서 잠금 해제’가 대표 쟁점이 된다.</p>
+                </div>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__year">2016<small>INVALID</small></div>
+                <div class="timeline__dot" aria-hidden="true"><i></i></div>
+                <div class="timeline__body">
+                  <h4>PTAB, 특허 무효 판단</h4>
+                  <p>2003년 네오노드 N1 등을 선행기술로 인정. 항소법원이 확정한다.</p>
+                </div>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__year">2017<small>GONE</small></div>
+                <div class="timeline__dot" aria-hidden="true"><i></i></div>
+                <div class="timeline__body">
+                  <h4>아이폰 X, 페이스 ID</h4>
+                  <p>홈 버튼과 함께 ‘밀어서 잠금 해제’ 동작도 역사로.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <aside class="tipbox">
+            <p class="tipbox__label"><svg aria-hidden="true"><use href="#i-book"/></svg>용어 팁</p>
+            <h3>선행기술(prior art)이란?</h3>
+            <p>특허를 받으려면 발명이 ‘새롭고’ ‘자명하지 않아야’ 한다. 그 기준이 되는 것이 선행기술, 곧 출원일 이전에 세상에 공개된 모든 기술이다. 논문, 특허, 제품 설명서, 유튜브 영상까지 포함된다.</p>
+            <p>선행기술은 ‘내가 그걸 몰랐다’고 해서 사라지지 않는다. 특허심판원은 발명이 선행기술의 단순한 조합인지, 놀라운 효과가 있는지를 본다. 네오노드 N1은 스웨덴에서만 팔린 소수 제품이었지만, 그 설명서와 화면이 공개돼 있었기 때문에 특허를 무너뜨릴 수 있었다.</p>
+          </aside>
+        </section>
+
+        <section class="act">
+          <div class="act__label"><span class="act__no">Act 03</span><span class="act__rule" aria-hidden="true"></span></div>
+          <h2 class="act__title">특허의 수명은 제품의 수명보다 길다</h2>
+          <p>특허는 20년을 산다. 그러나 스마트폰의 인터페이스는 3년이면 바뀐다. 이 구조는 특허를 가진 회사에 유리할까, 불리할까. 애플의 경우 답은 ‘둘 다’다. 특허는 경쟁사가 같은 동작을 쓰지 못하게 막아주었고, 그 사이 애플은 사용자에게 ‘밀면 풀린다’는 습관을 심었다. 특허가 무효가 됐을 때쯤 그 습관은 이미 애플의 것이 아니었다. 모두가 쓰는 방식이 되어 있었다.</p>
+          <p>그래서 애플은 다음 동작을 만들었다. 얼굴을 보는 것. 2017년 이후 ‘밀어서 잠금 해제’는 특허 목록에서만 남아 있다. 특허는 발명을 보호하지만, 발명을 영원히 붙잡아 두지는 못한다. 회사를 지키는 것은 결국 다음 동작을 계속 만들어내는 능력이다.</p>
+
+          <aside class="guess" aria-labelledby="guessQ">
+            <div class="guess__inner">
+              <p class="guess__label"><span>잠깐, 추측해 보세요</span><span>Spoiler</span></p>
+              <h3 class="guess__q" id="guessQ">‘밀어서 잠금 해제’ 특허가 무효가 된 핵심 이유는?</h3>
+              <div class="guess__options" data-guess>
+                <button class="guess__opt" type="button" data-correct="false">
+                  <span class="guess__opt-key" aria-hidden="true">A</span>
+                  <span>애플이 특허 갱신 수수료를 내지 않아서</span>
+                </button>
+                <button class="guess__opt" type="button" data-correct="true">
+                  <span class="guess__opt-key" aria-hidden="true">B</span>
+                  <span>2003년 네오노드 N1 같은 선행기술이 이미 같은 방식을 쓰고 있어서</span>
+                </button>
+                <button class="guess__opt" type="button" data-correct="false">
+                  <span class="guess__opt-key" aria-hidden="true">C</span>
+                  <span>삼성이 애플의 특허를 사들였기 때문에</span>
+                </button>
+              </div>
+              <div class="guess__result" id="guessResult" aria-live="polite">
+                <div>
+                  <div class="guess__answer">
+                    <p class="guess__status" data-guess-state="right"><svg aria-hidden="true"><use href="#i-check"/></svg><span data-guess-status>정답입니다</span></p>
+                    <p data-guess-text>정답은 <b>B</b>. PTAB은 2003년 스웨덴 휴대폰 네오노드 N1이 화면을 쓸어 올려 잠금을 푸는 방식을 이미 공개했다고 봤다. 애플이 내세운 ‘잠금 이미지가 손가락을 따라 움직인다’는 차이는 통상의 기술자에게 자명한 수준이라는 판단이었다.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+
+
+        <section class="sources" aria-labelledby="sourcesTitle">
+          <h2 id="sourcesTitle">사료</h2>
+          <ul>
+            <li><a href="https://patents.google.com/patent/US8046721B2/en" target="_blank" rel="noopener">US 8,046,721 「Unlocking a device by performing gestures on an unlock image」</a> — 출원 2009. 6. 2 / 등록 2011. 10. 25, 애플</li>
+            <li><a href="https://patents.google.com/patent/US7479949B2/en" target="_blank" rel="noopener">US 7,479,949 「Touch screen device, method, and graphical user interface…」</a> — 같은 시기 애플의 터치 UI 특허. ‘밀어서 잠금 해제’와 함께 소송에 인용됐다.</li>
+            <li><a href="https://www.reuters.com/article/us-apple-samsung-idUSKCN0VJ1Z0" target="_blank" rel="noopener">Apple v. Samsung, PTAB 무효 심판 보도</a> — 2016년 PTAB의 US 8,046,721 무효 판단</li>
+          </ul>
+        </section>
+
+        <div class="tail">
+          <p class="tail__label">꼬리 질문</p>
+          <h2 class="tail__q">그렇다면 신발 밑창에 난 격자무늬는 어떻게 스포츠의 역사를 바꿨을까?</h2>
+          <p class="tail__text">1971년 아침, 나이키의 코치가 주방의 와플 기계에 고무를 부었다. 그 격자는 운동장에서 선수의 발을 붙잡았다. 다음 이야기에서 이어진다.</p>
+
+          <a class="next-card" href="s6.html">
+            <div>
+              <p class="next-card__eyebrow">다음 이야기 · S6</p>
+              <p class="next-card__title">와플 기계에서 나온 밑창</p>
+              <p class="next-card__meta"><span class="badge">US 3,793,750</span><span>6분</span></p>
+            </div>
+            <div class="next-card__thumb" aria-hidden="true"><img src="../assets/patents/us3793750-fig1.png" alt="" width="900" height="400" loading="lazy" decoding="async"></div>
+          </a>
+
+          <div class="share-row">
+            <span class="share-row__label">공유</span>
+            <button class="share-btn share-btn--kakao" type="button" data-share="kakao">
+              <svg aria-hidden="true"><use href="#i-kakao"/></svg>카카오톡으로 보내기
+            </button>
+            <button class="share-btn" type="button" data-share="copy">
+              <svg aria-hidden="true"><use href="#i-link"/></svg>링크 복사
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <section class="related" aria-labelledby="relatedTitle">
+        <div class="section-head">
+          <h2 class="section-head__title" id="relatedTitle">꼬리를 무는 다른 이야기</h2>
+          <p class="section-head__sub">Brand Secrets · Curios</p>
+        </div>
+        <div class="related__grid">
+          <a class="related__item" href="../stories/s6.html">
+            <p class="related__cat">브랜드 비화 · S6</p>
+            <h3 class="related__title">와플 기계에서 나온 밑창</h3>
+            <p class="related__meta">US 3,793,750 · 6분</p>
+          </a>
+          <a class="related__item" href="../stories/s7.html">
+            <p class="related__cat">브랜드 비화 · S7</p>
+            <h3 class="related__title">어두운 곳에서도 알아보는 병</h3>
+            <p class="related__meta">US D 48,160 · 6분</p>
+          </a>
+          <a class="related__item" href="../stories/s8.html">
+            <p class="related__cat">브랜드 비화 · S8</p>
+            <h3 class="related__title">성난 도장공이 만든 마스킹 테이프</h3>
+            <p class="related__meta">US 1,760,820 · 6분</p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="footer-brand__mark">꼬꼬무</p>
+        <p class="footer-brand__text">꼬리에 꼬리를 무는 특허 이야기. 공개된 특허 원문과 기록을 대조해, 브랜드와 발명의 결정적 순간을 5분 분량의 이야기로 다시 씁니다.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col__title">매거진</p>
+        <ul>
+          <li><a href="../index.html">홈</a></li>
+          <li><a href="../index.html#stories">전체 이야기</a></li>
+          <li><a href="s5.html">S5 · 밀어서 잠금 해제</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col__title">사이트</p>
+        <ul>
+          <li><a href="../about.html">소개 (About)</a></li>
+          <li><a href="../contact.html">문의 (Contact)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col__title">정책</p>
+        <ul>
+          <li><a href="../privacy.html">개인정보처리방침</a></li>
+          <li><a href="../terms.html">이용약관</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">본 사이트의 모든 이야기는 미국·한국 특허청에 공개된 특허 원문과 언론 보도를 근거로 재구성한 것이며, 특허의 권리 범위에 대한 법적 해석을 제공하지 않습니다.</p>
+    <div class="footer-bottom">
+      <span>© 2026 꼬꼬무 · 특허 이야기. All rights reserved.</span>
+      <span class="num">ISSN — · Vol. 01</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../assets/app.js"></script>
+</body>
+</html>
