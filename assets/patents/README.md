@@ -24,10 +24,23 @@
 | us2094268-fig2.png | US 2,094,268 | Drinking tube (Joseph Bernard Friedman, 1937) | FIG. 2 | https://patents.google.com/patent/US2094268A/en |
 | us2495429-fig1.png | US 2,495,429 | Method of treating foodstuffs (Percy L. Spencer, Raytheon, 1950) | 도면 1 | https://patents.google.com/patent/US2495429A/en |
 | us3043625-fig1.png | US 3,043,625 | Safety belt (Nils Ivar Bohlin, Volvo, 1962) | FIG. 1 | https://patents.google.com/patent/US3043625A/en |
+| us3998975-fig1.png | US 3,998,975 | Potato chip products and process for making same (Alexander L. Liepa, Procter & Gamble, 1976) | FIG. 1 | https://patents.google.com/patent/US3998975A/en |
+| us748626-fig1.png | US 748,626 | Game-board / The Landlord’s Game (Lizzie J. Magie, 1904) | FIG. 1 | https://patents.google.com/patent/US748626A/en |
+| us2717437-fig1.png | US 2,717,437 | Velvet type fabric and method of producing same (George de Mestral, Velcro SA, 1955) | FIG. 1·2 | https://patents.google.com/patent/US2717437A/en |
+| us4136202-fig1.png | US 4,136,202 | Capsule for beverage preparation (Eric Favre, Nestlé, 1979) | FIG. 1·2 | https://patents.google.com/patent/US4136202A/en |
+| us3142599-fig5.png | US 3,142,599 | Method for making laminated cushioning material (Marc A. Chavannes, Sealed Air, 1964) | FIG. 5 | https://patents.google.com/patent/US3142599A/en |
+| us2612994-fig10.png | US 2,612,994 | Classifying apparatus and method (Norman J. Woodland & Bernard Silver, 1952) | FIG. 10 | https://patents.google.com/patent/US2612994A/en |
+| us5255452-fig3.png | US 5,255,452 | Method and means for creating anti-gravity illusion (Michael J. Jackson, Michael L. Bush, Dennis Tompkins, Triumph International, 1993) | FIG. 3 | https://patents.google.com/patent/US5255452A/en |
+| us2155896-fig1.png | US 2,155,896 | Combination basket and carriage (Sylvan N. Goldman, 1939) | FIG. 1 | https://patents.google.com/patent/US2155896A/en |
+| us6469-fig1.png | US 6,469 | Buoying vessels over shoals (Abraham Lincoln, 1849) | FIG. 1 | https://patents.google.com/patent/US6469A/en |
+| us3349949-fig1.png | US 3,349,949 | Ring-shaped tab for tear strips of containers (Omar L. Brown & Don B. Peters, 1967) | FIG. 1 | https://patents.google.com/patent/US3349949A/en |
 
-## 도면이 없는 특허 (사이트에서는 자체 도해 SVG 사용)
+도면 파일 모두 28점. 30편 가운데 27편에 원문 도면을 실었고(S1은 FIG. 1과 FIG. 4 두 장), 원문 도면이 없는 C1·C2·C4는 자체 도해로 대체했습니다(아래).
+
+## 도면을 싣지 않은 특허
 
 - **US 3,691,140** (Acrylate copolymer microspheres, 3M·Spencer Silver) — 화학 조성 특허로 도면이 없습니다. 카드와 S4 이야기에서는 제품을 완성한 3M 디스펜서 특허 **US 4,416,392** FIG. 7을 실었습니다.
 - **1449 John of Utynam** (색유리 제조) — 레터스 패턴트 문서만 남아 있고 도면이 없습니다. 자체 도해(`#ill-charter`).
 - **GB 1 (1617)** — 런던 지도 인쇄 독점. 원문에 도면이 없습니다. 자체 도해(`#ill-map`).
 - **KR 10-0000001** (유화염료 제조법, 1948) — 화학 공정 특허로 도면이 없습니다. 자체 도해(`#ill-flask`).
+- **US 3,967,752** (Easy-open wall, Daniel F. Cudzik·Reynolds Metals, 1976) — C15 이야기에서 ‘떨어지지 않는 탭’으로 설명만 하고, 도면은 같은 이야기의 링 모양 탭(US 3,349,949)을 실었습니다. 한 편에 도면 한 장을 원칙으로 했기 때문입니다.
