@@ -582,7 +582,7 @@
       content: {
         title: doc.title.replace(" — 꼬꼬무", ""),
         description: "꼬리에 꼬리를 무는 특허 이야기 · 꼬꼬무",
-        imageUrl: "https://kkokkomu.com/assets/og-story.png",
+        imageUrl: "https://rarasister.com/assets/og-story.png",
         link: { mobileWebUrl: pageUrl(), webUrl: pageUrl() }
       },
       buttons: [{ title: "이야기 읽기", link: { mobileWebUrl: pageUrl(), webUrl: pageUrl() } }]

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kkokkomu.com/sitemap.xml
+Sitemap: https://rarasister.com/sitemap.xml

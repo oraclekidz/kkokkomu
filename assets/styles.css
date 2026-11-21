@@ -546,10 +546,7 @@ hr {
 
 /* ---------- 5c. Search result note (home) -------------------------------- */
 .story-search-note {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 6px;
+  display: block;
   margin-top: 14px;
   font-size: 13px;
   color: var(--ink-3);
