@@ -1,8 +1,8 @@
 # 특허 도면 출처 (public domain)
 
-이 폴더의 PNG는 모두 **미국 특허상표청(USPTO) 공개 원문 도면**을 Google Patents에서 내려받아, 도면 부분만 잘라내고 여백을 정리한 파일입니다. 미국 특허 도면·명세서는 퍼블릭 도메인이라 인용·게재에 제약이 없습니다. 사이트에서는 `mix-blend-mode: multiply`로 종이 톤 위에 얹어 사용합니다.
+이 폴더의 PNG·JPG는 **공개 원문 사료**를 내려받아 그림 부분만 잘라내고 여백을 정리한 파일입니다. 대부분은 **미국 특허상표청(USPTO) 공개 원문 도면**을 Google Patents에서 받은 것이고, 원문 도면이 없는 편은 특허공보·연대기 색인·초상화 같은 1차 사료로 대신했습니다(아래 ‘도면 대신 다른 사료를 실은 편’). 미국 특허 도면·명세서, 1852년 이전 영국 특허 색인, 1948년 대한민국 특허공보, 헨리 6세 초상(15세기 회화)은 모두 퍼블릭 도메인이라 인용·게재에 제약이 없습니다. 사이트에서는 `mix-blend-mode: multiply`로 종이 톤 위에 얹어 사용합니다.
 
-원문은 Google Patents가 제공하는 2,320×3,408px(약 270dpi) 스캔 또는 개별 도면 이미지에서 잘라냈고, 긴 변 1,400px 이내로 정리했습니다.
+원문 도면은 Google Patents가 제공하는 2,320×3,408px(약 270dpi) 스캔 또는 개별 도면 이미지에서 잘라냈고, 긴 변 1,400px 이내로 정리했습니다. 특허공보·색인·초상화는 원본 해상도가 낮아 무리하게 늘리지 않고 원본 또는 1.5배 이내로만 키웠습니다(kr1-gazette 651×1,029 · gb1-index 568×852 · henry-vi 500×658 · chem 420×694). 화면에서는 `maxw` 값으로 표시 폭을 원본에 가깝게 묶어 흐려 보이지 않게 했습니다.
 
 | 파일 | 특허 | 제목 | 도면 | 원문 |
 | --- | --- | --- | --- | --- |
@@ -34,13 +34,17 @@
 | us2155896-fig1.png | US 2,155,896 | Combination basket and carriage (Sylvan N. Goldman, 1939) | FIG. 1 | https://patents.google.com/patent/US2155896A/en |
 | us6469-fig1.png | US 6,469 | Buoying vessels over shoals (Abraham Lincoln, 1849) | FIG. 1 | https://patents.google.com/patent/US6469A/en |
 | us3349949-fig1.png | US 3,349,949 | Ring-shaped tab for tear strips of containers (Omar L. Brown & Don B. Peters, 1967) | FIG. 1 | https://patents.google.com/patent/US3349949A/en |
+| us3691140-chem.png | US 3,691,140 | Acrylate copolymer microspheres (Spencer Ferguson Silver, 3M, 1972) | 명세서 화학 구조식 Ⅰ~Ⅴ | https://patents.google.com/patent/US3691140A/en |
+| kr1-gazette.png | KR 10-0000001 | 유화염료제조법 (중앙공업연구소, 이범순·김찬구, 1948) | 특허공보 게재면 | https://www.kipo.go.kr/ |
+| gb1-index.png | GB 1 (1617) | Engraving and printing maps, plans, &c. (Aaron Rathborne·Roger Burges) | Chronological Index 1면 | https://archive.org/stream/chronologicalin1617grea_0/chronologicalin1617grea_0_djvu.txt |
+| henry-vi-1449.jpg | Letters Patent, 1449 | Stained glass making (John of Utynam) | 헨리 6세 초상 | https://commons.wikimedia.org/wiki/File:Henri_VI_angleterre.jpg |
 
-도면 파일 모두 28점. 30편 가운데 27편에 원문 도면을 실었고(S1은 FIG. 1과 FIG. 4 두 장), 원문 도면이 없는 C1·C2·C4는 자체 도해로 대체했습니다(아래).
+이미지 파일 모두 32점. 30편 가운데 27편에 원문 도면을 실었고(S1은 FIG. 1과 FIG. 4 두 장), 원문 도면이 없는 S4·C1·C2·C4는 특허공보·연대기 색인·화학 구조식·초상화로 대체했습니다(아래). 자체 SVG 도해(`#ill-charter`·`#ill-map`·`#ill-flask`)는 더 이상 쓰지 않습니다.
 
-## 도면을 싣지 않은 특허
+## 도면 대신 다른 사료를 실은 편
 
-- **US 3,691,140** (Acrylate copolymer microspheres, 3M·Spencer Silver) — 화학 조성 특허로 도면이 없습니다. 카드와 S4 이야기에서는 제품을 완성한 3M 디스펜서 특허 **US 4,416,392** FIG. 7을 실었습니다.
-- **1449 John of Utynam** (색유리 제조) — 레터스 패턴트 문서만 남아 있고 도면이 없습니다. 자체 도해(`#ill-charter`).
-- **GB 1 (1617)** — 런던 지도 인쇄 독점. 원문에 도면이 없습니다. 자체 도해(`#ill-map`).
-- **KR 10-0000001** (유화염료 제조법, 1948) — 화학 공정 특허로 도면이 없습니다. 자체 도해(`#ill-flask`).
+- **US 3,691,140** (Acrylate copolymer microspheres, 3M·Spencer Silver) — 화학 조성 특허라 기계 도면이 없습니다. 대신 명세서에 실린 단량체 화학 구조식(Ⅰ~Ⅴ)을 `us3691140-chem.png`로 실었습니다. 제품을 완성한 3M 디스펜서 특허 **US 4,416,392** FIG. 7은 S4 이야기 본문에서 설명만 합니다.
+- **1449 John of Utynam** (색유리 제조) — 레터스 패턴트 원문에는 도면이 없습니다. 공개장을 내린 군주 헨리 6세의 초상(`henry-vi-1449.jpg`, Wikimedia Commons, Public Domain)을 실었습니다.
+- **GB 1 (1617)** — 런던 지도 인쇄 독점. 원문에 도면이 없어, 1852년 특허청이 번호를 매길 때 쓴 『Chronological Index of Patents of Invention』 1면(`gb1-index.png`)을 실었습니다. 1번 항목이 GB1입니다.
+- **KR 10-0000001** (유화염료제조법, 1948) — 화학 공정 특허로 도면이 없습니다. 특허청 특허공보 게재면(`kr1-gazette.png`)을 실었습니다. 공고번호 10-1948-0000005, 공고일 1948년 6월 20일, 출원번호 10-1947-0000368.
 - **US 3,967,752** (Easy-open wall, Daniel F. Cudzik·Reynolds Metals, 1976) — C15 이야기에서 ‘떨어지지 않는 탭’으로 설명만 하고, 도면은 같은 이야기의 링 모양 탭(US 3,349,949)을 실었습니다. 한 편에 도면 한 장을 원칙으로 했기 때문입니다.

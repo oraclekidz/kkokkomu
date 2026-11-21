@@ -954,6 +954,12 @@ hr {
   background: var(--ink-4);
 }
 
+.meta-date {
+  display: inline-flex;
+  align-items: center;
+  gap: inherit;
+}
+
 .story-card__thumb {
   position: relative;
   background: var(--paper-deep);
