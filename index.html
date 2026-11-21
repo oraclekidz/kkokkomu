@@ -281,7 +281,7 @@
       <div class="header-tools">
         <label class="search-field">
           <svg aria-hidden="true"><use href="#i-search"/></svg>
-          <input type="search" placeholder="특허번호·브랜드 검색" aria-label="이야기 검색" data-search>
+          <input type="search" placeholder="본문·특허번호 검색" aria-label="이야기 검색" data-search>
         </label>
         <span class="header-tools__divider" aria-hidden="true"></span>
         <button class="icon-btn js-search-toggle" type="button" aria-label="검색 열기" aria-expanded="false" aria-controls="mobileSearch">
@@ -292,14 +292,14 @@
     <div class="mobile-search" id="mobileSearch" hidden>
       <label class="search-field" style="display:flex;min-width:0;width:100%">
         <svg aria-hidden="true"><use href="#i-search"/></svg>
-        <input type="search" placeholder="특허번호·브랜드 검색" aria-label="이야기 검색 (모바일)" data-search>
+        <input type="search" placeholder="본문·브랜드·특허번호 검색" aria-label="이야기 검색 (모바일)" data-search>
       </label>
     </div>
   </div>
 </header>
 
 <main id="main">
-  <section class="hero" data-hero aria-labelledby="heroTitle">
+  <section class="hero" data-hero data-id="s1" aria-labelledby="heroTitle">
     <div class="container">
       <div class="hero__label">
         <span class="hero__label-text"><i aria-hidden="true"></i>표지 이야기</span>
@@ -382,8 +382,10 @@
         </div>
       </div>
 
+      <p class="story-search-note" id="storySearchNote" hidden><span id="storySearchQ"></span> 검색 결과 <strong id="storySearchCount">0</strong>편 <button class="link-quiet js-clear-q" type="button" style="margin-left:4px">지우기</button></p>
+
       <div class="story-list" id="storyList" aria-live="polite">
-        <article class="story-card js-story" data-cat="brand" data-title="컵 슬리브, 8개월 협상이 만든 다른 구조 US 5,425,497 Cup holder">
+        <article class="story-card js-story" data-id="s1" data-cat="brand" data-title="컵 슬리브, 8개월 협상이 만든 다른 구조 US 5,425,497 Cup holder">
           <a class="story-card__link" href="story.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -407,7 +409,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="brand" data-title="레고, 브릭 위의 원기둥 여덟 개 US 3,005,282 Toy building brick">
+        <article class="story-card js-story" data-id="s2" data-cat="brand" data-title="레고, 브릭 위의 원기둥 여덟 개 US 3,005,282 Toy building brick">
           <a class="story-card__link" href="stories/s2.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -431,7 +433,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="brand" data-title="먼지봉투를 버린 남자, 사이클론 US 5,078,761 Shroud">
+        <article class="story-card js-story" data-id="s3" data-cat="brand" data-title="먼지봉투를 버린 남자, 사이클론 US 5,078,761 Shroud">
           <a class="story-card__link" href="stories/s3.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -455,7 +457,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="brand" data-title="실패한 접착제가 책갈피가 되기까지 US 3,691,140 Acrylate copolymer microspheres">
+        <article class="story-card js-story" data-id="s4" data-cat="brand" data-title="실패한 접착제가 책갈피가 되기까지 US 3,691,140 Acrylate copolymer microspheres">
           <a class="story-card__link" href="stories/s4.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -479,7 +481,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="brand" data-title="밀어서 잠금 해제, 9년의 특허 US 8,046,721 Unlocking a device by performing gestures on an unlock image">
+        <article class="story-card js-story" data-id="s5" data-cat="brand" data-title="밀어서 잠금 해제, 9년의 특허 US 8,046,721 Unlocking a device by performing gestures on an unlock image">
           <a class="story-card__link" href="stories/s5.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -503,7 +505,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="brand" data-title="와플 기계에서 나온 밑창 US 3,793,750 Athletic shoe for artificial turf">
+        <article class="story-card js-story" data-id="s6" data-cat="brand" data-title="와플 기계에서 나온 밑창 US 3,793,750 Athletic shoe for artificial turf">
           <a class="story-card__link" href="stories/s6.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -527,7 +529,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="brand" data-title="어두운 곳에서도 알아보는 병 US D 48,160 A bottle or similar article">
+        <article class="story-card js-story" data-id="s7" data-cat="brand" data-title="어두운 곳에서도 알아보는 병 US D 48,160 A bottle or similar article">
           <a class="story-card__link" href="stories/s7.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -551,7 +553,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="brand" data-title="성난 도장공이 만든 마스킹 테이프 US 1,760,820 Adhesive tape">
+        <article class="story-card js-story" data-id="s8" data-cat="brand" data-title="성난 도장공이 만든 마스킹 테이프 US 1,760,820 Adhesive tape">
           <a class="story-card__link" href="stories/s8.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -575,7 +577,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="brand" data-title="버튼 하나로 결제하는 방법 US 5,960,411 Method and system for placing a purchase order via a communications network">
+        <article class="story-card js-story" data-id="s9" data-cat="brand" data-title="버튼 하나로 결제하는 방법 US 5,960,411 Method and system for placing a purchase order via a communications network">
           <a class="story-card__link" href="stories/s9.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -599,7 +601,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="brand" data-title="링크를 추천서로 읽은 사람 US 6,285,999 Method for node ranking in a linked database">
+        <article class="story-card js-story" data-id="s10" data-cat="brand" data-title="링크를 추천서로 읽은 사람 US 6,285,999 Method for node ranking in a linked database">
           <a class="story-card__link" href="stories/s10.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -623,7 +625,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="brand" data-title="감자칩이 아니라고 우긴 과자 US 3,998,975 Potato chip products and process for making same">
+        <article class="story-card js-story" data-id="s11" data-cat="brand" data-title="감자칩이 아니라고 우긴 과자 US 3,998,975 Potato chip products and process for making same">
           <a class="story-card__link" href="stories/s11.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -647,7 +649,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="brand" data-title="독점을 가르치려던 게임판 US 748,626 Game-board">
+        <article class="story-card js-story" data-id="s12" data-cat="brand" data-title="독점을 가르치려던 게임판 US 748,626 Game-board">
           <a class="story-card__link" href="stories/s12.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -671,7 +673,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="brand" data-title="도꼬마리 씨앗이 만든 갈고리 US 2,717,437 Velvet type fabric and method of producing same">
+        <article class="story-card js-story" data-id="s13" data-cat="brand" data-title="도꼬마리 씨앗이 만든 갈고리 US 2,717,437 Velvet type fabric and method of producing same">
           <a class="story-card__link" href="stories/s13.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -695,7 +697,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="brand" data-title="16기압 캡슐의 C자 홈 US 4,136,202 Capsule for beverage preparation">
+        <article class="story-card js-story" data-id="s14" data-cat="brand" data-title="16기압 캡슐의 C자 홈 US 4,136,202 Capsule for beverage preparation">
           <a class="story-card__link" href="stories/s14.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -719,7 +721,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="brand" data-title="벽지 실패가 만든 뽁뽁이 US 3,142,599 Method for making laminated cushioning material">
+        <article class="story-card js-story" data-id="s15" data-cat="brand" data-title="벽지 실패가 만든 뽁뽁이 US 3,142,599 Method for making laminated cushioning material">
           <a class="story-card__link" href="stories/s15.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -743,7 +745,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="가장 오래된 특허, 색유리 Letters Patent, 1449 Stained glass making (John of Utynam)">
+        <article class="story-card js-story" data-id="c1" data-cat="curio" data-title="가장 오래된 특허, 색유리 Letters Patent, 1449 Stained glass making (John of Utynam)">
           <a class="story-card__link" href="stories/c1.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -767,7 +769,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="영국 특허 1호, 런던 지도 GB 1 (1617) Engraving and printing maps, plans, &amp;c.">
+        <article class="story-card js-story" data-id="c2" data-cat="curio" data-title="영국 특허 1호, 런던 지도 GB 1 (1617) Engraving and printing maps, plans, &amp;c.">
           <a class="story-card__link" href="stories/c2.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -791,7 +793,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="미국 특허 1호, 증기기관차 바퀴 US 1 Traction wheels">
+        <article class="story-card js-story" data-id="c3" data-cat="curio" data-title="미국 특허 1호, 증기기관차 바퀴 US 1 Traction wheels">
           <a class="story-card__link" href="stories/c3.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -815,7 +817,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="한국 특허 1호, 유화염료 KR 10-0000001 유화염료 제조법">
+        <article class="story-card js-story" data-id="c4" data-cat="curio" data-title="한국 특허 1호, 유화염료 KR 10-0000001 유화염료 제조법">
           <a class="story-card__link" href="stories/c4.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -839,7 +841,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="그네 타는 방법에도 특허가 있다 US 6,368,227 Method of swinging on a swing">
+        <article class="story-card js-story" data-id="c5" data-cat="curio" data-title="그네 타는 방법에도 특허가 있다 US 6,368,227 Method of swinging on a swing">
           <a class="story-card__link" href="stories/c5.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -863,7 +865,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="날기 전에 출원한 비행기 US 821,393 Flying-machine">
+        <article class="story-card js-story" data-id="c6" data-cat="curio" data-title="날기 전에 출원한 비행기 US 821,393 Flying-machine">
           <a class="story-card__link" href="stories/c6.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -887,7 +889,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="지퍼, 톱니를 맞물리게 하는 법 US 1,219,881 Separable fastener">
+        <article class="story-card js-story" data-id="c7" data-cat="curio" data-title="지퍼, 톱니를 맞물리게 하는 법 US 1,219,881 Separable fastener">
           <a class="story-card__link" href="stories/c7.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -911,7 +913,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="구부러지는 빨대의 주름 US 2,094,268 Drinking tube">
+        <article class="story-card js-story" data-id="c8" data-cat="curio" data-title="구부러지는 빨대의 주름 US 2,094,268 Drinking tube">
           <a class="story-card__link" href="stories/c8.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -935,7 +937,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="초콜릿에서 시작된 전자레인지 US 2,495,429 Method of treating foodstuffs">
+        <article class="story-card js-story" data-id="c9" data-cat="curio" data-title="초콜릿에서 시작된 전자레인지 US 2,495,429 Method of treating foodstuffs">
           <a class="story-card__link" href="stories/c9.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -959,7 +961,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="3점식 안전벨트, 무료로 열린 특허 US 3,043,625 Safety belt">
+        <article class="story-card js-story" data-id="c10" data-cat="curio" data-title="3점식 안전벨트, 무료로 열린 특허 US 3,043,625 Safety belt">
           <a class="story-card__link" href="stories/c10.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -983,7 +985,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="모래 위 네 줄이 만든 바코드 US 2,612,994 Classifying apparatus and method">
+        <article class="story-card js-story" data-id="c11" data-cat="curio" data-title="모래 위 네 줄이 만든 바코드 US 2,612,994 Classifying apparatus and method">
           <a class="story-card__link" href="stories/c11.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -1007,7 +1009,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="무대의 45도, 신발 속의 홈 US 5,255,452 Method and means for creating anti-gravity illusion">
+        <article class="story-card js-story" data-id="c12" data-cat="curio" data-title="무대의 45도, 신발 속의 홈 US 5,255,452 Method and means for creating anti-gravity illusion">
           <a class="story-card__link" href="stories/c12.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -1031,7 +1033,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="의자에 바퀴를 단 쇼핑 카트 US 2,155,896 Combination basket and carriage">
+        <article class="story-card js-story" data-id="c13" data-cat="curio" data-title="의자에 바퀴를 단 쇼핑 카트 US 2,155,896 Combination basket and carriage">
           <a class="story-card__link" href="stories/c13.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -1055,7 +1057,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="강 위로 배를 띄운 링컨의 특허 US 6,469 Buoying vessels over shoals">
+        <article class="story-card js-story" data-id="c14" data-cat="curio" data-title="강 위로 배를 띄운 링컨의 특허 US 6,469 Buoying vessels over shoals">
           <a class="story-card__link" href="stories/c14.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -1079,7 +1081,7 @@
           </a>
         </article>
 
-        <article class="story-card js-story" data-cat="curio" data-title="소풍에서 시작된 링 풀탭 US 3,349,949 · US 3,967,752 Ring-shaped tab · Easy-open wall">
+        <article class="story-card js-story" data-id="c15" data-cat="curio" data-title="소풍에서 시작된 링 풀탭 US 3,349,949 · US 3,967,752 Ring-shaped tab · Easy-open wall">
           <a class="story-card__link" href="stories/c15.html">
             <div class="story-card__body">
               <div class="story-card__eyebrow">
@@ -1148,6 +1150,7 @@
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/search-index.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>

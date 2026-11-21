@@ -300,13 +300,22 @@
       <div class="header-tools">
         <label class="search-field">
           <svg aria-hidden="true"><use href="#i-search"/></svg>
-          <input type="search" placeholder="특허번호·브랜드 검색" aria-label="이야기 검색">
+          <input type="search" placeholder="본문·특허번호 검색" aria-label="이야기 검색" data-search>
         </label>
         <span class="header-tools__divider" aria-hidden="true"></span>
         <a class="icon-btn" href="../index.html#stories" aria-label="목록으로">
           <svg aria-hidden="true"><use href="#i-book"/></svg>
         </a>
+        <button class="icon-btn js-search-toggle" type="button" aria-label="검색 열기" aria-expanded="false" aria-controls="mobileSearch">
+          <svg aria-hidden="true"><use href="#i-search"/></svg>
+        </button>
       </div>
+    </div>
+    <div class="mobile-search" id="mobileSearch" hidden>
+      <label class="search-field" style="display:flex;min-width:0;width:100%">
+        <svg aria-hidden="true"><use href="#i-search"/></svg>
+        <input type="search" placeholder="본문·브랜드·특허번호 검색" aria-label="이야기 검색 (모바일)" data-search>
+      </label>
     </div>
   </div>
 </header>
@@ -578,6 +587,7 @@
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../assets/search-index.js"></script>
 <script src="../assets/app.js"></script>
 </body>
 </html>

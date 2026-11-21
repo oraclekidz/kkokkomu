@@ -42,6 +42,22 @@
         <a class="nav__link" href="about.html">소개</a>
         <a class="nav__link" href="contact.html">문의</a>
       </nav>
+      <div class="header-tools">
+        <label class="search-field">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.4 15.4 21 21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <input type="search" placeholder="본문·특허번호 검색" aria-label="이야기 검색" data-search>
+        </label>
+        <span class="header-tools__divider" aria-hidden="true"></span>
+        <button class="icon-btn js-search-toggle" type="button" aria-label="검색 열기" aria-expanded="false" aria-controls="mobileSearch">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.4 15.4 21 21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-search" id="mobileSearch" hidden>
+      <label class="search-field" style="display:flex;min-width:0;width:100%">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.4 15.4 21 21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <input type="search" placeholder="본문·브랜드·특허번호 검색" aria-label="이야기 검색 (모바일)" data-search>
+      </label>
     </div>
   </div>
 </header>
@@ -109,6 +125,7 @@
   </div>
 </footer>
 
+<script src="assets/search-index.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>
