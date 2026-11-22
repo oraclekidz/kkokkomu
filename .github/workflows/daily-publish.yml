@@ -1,0 +1,51 @@
+name: daily-publish
+
+# One story a day, published in the evening KST 19:00–22:00.
+# The job starts at 19:00 KST (10:00 UTC) and waits a random 0–3 hours, so the new
+# story goes live at an unpredictable minute inside that window.
+# workflow_dispatch runs right away (no wait) for manual re-publishing or tests.
+on:
+  schedule:
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Wait a random 0–3 hours (scheduled runs only)
+        if: github.event_name == 'schedule'
+        run: |
+          delay=$(( RANDOM % 10801 ))   # 0 … 10800 seconds
+          echo "wait ${delay}s — publish at $(TZ=Asia/Seoul date -d "+${delay} seconds" '+%Y-%m-%d %H:%M KST')"
+          sleep "$delay"
+
+      - name: Build the site (stories dated on or before today, KST)
+        run: python3 tools/build_site.py
+
+      - name: Commit and push when today's story changed anything
+        run: |
+          git config user.name  "kkkokkomu-bot"
+          git config user.email "contact@rarasister.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "nothing to publish today"
+            exit 0
+          fi
+          git commit -m "chore: publish $(TZ=Asia/Seoul date +%Y-%m-%d) story"
+          git push

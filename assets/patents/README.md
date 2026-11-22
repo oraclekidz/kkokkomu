@@ -35,6 +35,20 @@
 | us6469-fig1.png | US 6,469 | Buoying vessels over shoals (Abraham Lincoln, 1849) | FIG. 1 | https://patents.google.com/patent/US6469A/en |
 | us3349949-fig1.png | US 3,349,949 | Ring-shaped tab for tear strips of containers (Omar L. Brown & Don B. Peters, 1967) | FIG. 1 | https://patents.google.com/patent/US3349949A/en |
 | us3691140-chem.png | US 3,691,140 | Acrylate copolymer microspheres (Spencer Ferguson Silver, 3M, 1972) | 명세서 화학 구조식 Ⅰ~Ⅴ | https://patents.google.com/patent/US3691140A/en |
+| us7311526-fig6.png | US 7,311,526 | Magnetic connector for electronic device (Apple, 2007) | FIG. 6 | https://patents.google.com/patent/US7311526B2/en |
+| us8615473-fig1.png | US 8,615,473 | Method and system for anticipatory package shipping (Amazon Technologies, 2013) | FIG. 1 | https://patents.google.com/patent/US8615473B2/en |
+| us11353932-fig9.png | US 11,353,932 | Hinge module including detent structure (Samsung Electronics, 2022) | FIG. 9 | https://patents.google.com/patent/US11353932B2/en |
+| us11962030-fig1b.png | US 11,962,030 | Integrated energy storage system (Tesla, 2024) | FIG. 1B (분해도) | https://patents.google.com/patent/US11962030B2/en |
+| us4412106-fig4.png | US 4,412,106 | High fidelity stereophonic reproduction system (Andreas Pavel, 1983) | FIG. 4 | https://patents.google.com/patent/US4412106A/en |
+| us9014545-fig1.png | US 9,014,545 | Adaptive streaming for digital content distribution (Netflix, 2015) | FIG. 1 | https://patents.google.com/patent/US9014545B2/en |
+| usd756791-fig1.png | US D 756,791 | Bottle (Kris Tomasson, Coca-Cola, 2016) | FIG. 1 | https://patents.google.com/patent/USD756791S1/en |
+| us9802568-fig3a.png | US 9,802,568 | Interlocking vehicle airbags (Waymo, 2017) | FIG. 2A | https://patents.google.com/patent/US9802568B1/en |
+| us2741079-fig3.png | US 2,741,079 | Apparatus for continuous production of filled and sealed tetrahedral packages (Ruben Rausing, 1956) | FIG. 3 (~5) | https://patents.google.com/patent/US2741079A/en |
+| us9447804-fig5.png | US 9,447,804 | Furniture joint (Inter IKEA Systems, 2016) | FIG. 5 | https://patents.google.com/patent/US9447804B2/en |
+| us775134-fig1.png | US 775,134 | Razor (King C. Gillette, 1904) | 도면 시트 전체 | https://patents.google.com/patent/US775134A/en |
+| us3953566-fig1.png | US 3,953,566 | Process for producing porous products (Robert W. Gore, 1976) | FIG. 1·2 | https://patents.google.com/patent/US3953566A/en |
+| us4837932-fig1.png | US 4,837,932 | Locking blade pocket-knife (Carl Elsener, Victorinox, 1989) | FIG. 1·2·6·7 | https://patents.google.com/patent/US4837932A/en |
+| usd517789-fig1.png | US D 517,789 | Footwear (Scott Seamans, Crocs, 2006) | FIG. 1 | https://patents.google.com/patent/USD517789S1/en |
 | kr1-gazette.png | KR 10-0000001 | 유화염료제조법 (중앙공업연구소, 이범순·김찬구, 1948) | 특허공보 게재면 | https://www.kipo.go.kr/ |
 | gb1-index.png | GB 1 (1617) | Engraving and printing maps, plans, &c. (Aaron Rathborne·Roger Burges) | Chronological Index 1면 | https://archive.org/stream/chronologicalin1617grea_0/chronologicalin1617grea_0_djvu.txt |
 | henry-vi-1449.jpg | Letters Patent, 1449 | Stained glass making (John of Utynam) | 헨리 6세 초상 | https://commons.wikimedia.org/wiki/File:Henri_VI_angleterre.jpg |
@@ -48,3 +62,12 @@
 - **GB 1 (1617)** — 런던 지도 인쇄 독점. 원문에 도면이 없어, 1852년 특허청이 번호를 매길 때 쓴 『Chronological Index of Patents of Invention』 1면(`gb1-index.png`)을 실었습니다. 1번 항목이 GB1입니다.
 - **KR 10-0000001** (유화염료제조법, 1948) — 화학 공정 특허로 도면이 없습니다. 특허청 특허공보 게재면(`kr1-gazette.png`)을 실었습니다. 공고번호 10-1948-0000005, 공고일 1948년 6월 20일, 출원번호 10-1947-0000368.
 - **US 3,967,752** (Easy-open wall, Daniel F. Cudzik·Reynolds Metals, 1976) — C15 이야기에서 ‘떨어지지 않는 탭’으로 설명만 하고, 도면은 같은 이야기의 링 모양 탭(US 3,349,949)을 실었습니다. 한 편에 도면 한 장을 원칙으로 했기 때문입니다.
+
+## 2026-11-22 ~ 12-05 연재분 (글로벌 기업 특허 14편)
+
+위 표의 마지막 14행이 이번에 추가한 도면입니다. 모두 Google Patents가 제공하는 원문 PDF를 300dpi로 렌더링해 도면 부분만 잘라낸 것이고(긴 변 1,300~1,400px), 크롭 좌표는 `tools/crop_one.py`로 재현할 수 있습니다.
+
+- **US D 756,791**(코카콜라, S22)은 원래 계획했던 1915년 컨투어 병 디자인 특허(US D 48,160)가 이미 S7에서 쓰였기 때문에, 같은 회사의 2016년 병 디자인 특허로 대체했습니다. 도면의 점선(청구하지 않는 병의 윤곽)과 실선(청구한 띠)이 이야기의 핵심 사료입니다.
+- **아마존**(S17)도 원래 주제였던 1-Click 주문 특허가 이미 S9에 있어, 같은 회사의 예측 배송 특허(US 8,615,473)로 바꿨습니다.
+- **US 2,741,079**(테트라팩)은 1956년 등록본 PDF의 스캔 품질이 낮아 300dpi 렌더링 후에도 선이 거칠 수 있습니다. 원문 그대로의 상태입니다.
+- 이번 14편 도면은 모두 Google Patents 원문 PDF(patentimages)에서 받았습니다. 다만 이 작업 환경에서는 patents.google.com 페이지가 HTTP 503으로 막혀 있어, 서지 확인은 Google Patents 페이지를 다른 경로로 읽어 수행했습니다(등록번호·발명자·출원일·등록일·청구항 확인 완료).

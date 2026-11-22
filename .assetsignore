@@ -1,0 +1,14 @@
+# Cloudflare Workers serves this folder as-is (`npx wrangler deploy --assets=.`),
+# so everything that is not part of the public site must be kept out of the asset tree.
+# Same syntax as .gitignore.
+
+.git/
+.github/
+data/
+tools/
+PROGRESS.md
+.assetsignore
+.gitignore
+__pycache__/
+*.pyc
+.DS_Store

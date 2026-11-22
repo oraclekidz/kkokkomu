@@ -1,0 +1,573 @@
+#!/usr/bin/env python3
+"""Build story pages (stories/*.html), the index card list, sitemap.xml and the
+search index for 꼬꼬무 — publishing only the stories whose KST date has arrived.
+
+    python3 tools/build_site.py                  # publish everything dated <= today (KST)
+    python3 tools/build_site.py --include-future # build every story (local verification)
+
+Story source lives in data/*.py, the page shell in tools/story_template.html, so the
+whole build runs inside the repository (GitHub Actions, Cloudflare Workers builds).
+"""
+import os, re, sys, html, json, importlib.util, datetime
+
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:  # pragma: no cover
+    ZoneInfo = None
+
+TOOLS = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(TOOLS)                    # repository root
+DATA = os.path.join(ROOT, "data")
+TPL = open(os.path.join(TOOLS, "story_template.html"), encoding="utf-8").read()
+
+
+def today_kst():
+    if ZoneInfo is not None:
+        return datetime.datetime.now(ZoneInfo("Asia/Seoul")).date().isoformat()
+    return (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).date().isoformat()
+
+
+TODAY = today_kst()
+
+
+def load(path):
+    spec = importlib.util.spec_from_file_location(os.path.basename(path)[:-3], path)
+    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    return m.STORIES
+
+
+def e(s):
+    return html.escape(s, quote=True)
+
+
+def clean_url(href):
+    """stories/s16.html -> stories/s16 ; story.html -> story (the Worker serves clean URLs)."""
+    if href == "story.html":
+        return "story"
+    if href.startswith("stories/") and href.endswith(".html"):
+        return href[:-5]
+    return href
+
+
+# ---------------------------------------------------------------- search index
+def plain_text(markup):
+    """Visible text of an HTML fragment: drops script/style/svg, tags, entities."""
+    s = re.sub(r"(?is)<(script|style|svg)\b.*?</\1\s*>\s*", " ", markup)
+    s = re.sub(r"(?is)<!--.*?-->", " ", s)
+    s = re.sub(r"(?s)<[^>]+>", " ", s)
+    s = html.unescape(s)
+    s = re.sub(r"[\u00a0\u200b]", " ", s)
+    s = re.sub(r"\s+", " ", s)
+    return s.strip()
+
+
+def story_text(st):
+    """Everything a reader can read in one story, as plain text."""
+    parts = [st.get(k, "") for k in ("title", "short", "deck", "excerpt", "desc",
+                                      "ptitle", "inventor", "catname", "crumb", "label", "patent")]
+    parts.append(st.get("lede", ""))
+    for act in st.get("acts") or []:
+        parts.append(act.get("title", ""))
+        parts.extend(act.get("paras") or [])
+        tl = act.get("timeline")
+        if tl:
+            parts.extend([tl.get("title", ""), tl.get("sub", "")])
+            for it in tl.get("items") or []:
+                parts.extend([it.get("year", ""), it.get("tag", ""), it.get("h", ""), it.get("p", "")])
+        tip = act.get("tip")
+        if tip:
+            parts.extend([tip.get("label", ""), tip.get("h", "")])
+            parts.extend(tip.get("paras") or [])
+        qz = act.get("quiz")
+        if qz:
+            parts.append(qz.get("q", ""))
+            parts.extend(qz.get("opts") or [])
+            parts.append(plain_text(qz.get("answer", "")))
+    quote = st.get("quote")
+    if quote:
+        parts.extend(list(quote))
+    for src in st.get("sources") or []:
+        parts.extend([src[0], src[2] if len(src) > 2 else ""])
+    parts.extend(list(st.get("tail") or ("", "")))
+    return "\n".join(p for p in parts if p)
+
+
+def page_article_text(path):
+    """Body text of a hand-written story page (S1 lives in story.html)."""
+    raw = open(path, encoding="utf-8").read()
+    a = raw.find('<header class="article-head">')
+    b = raw.find('<div class="tail">')
+    seg = raw[a:b] if a != -1 and b != -1 else raw
+    return plain_text(seg)
+
+
+def patent_key(value):
+    return re.sub(r"[^0-9a-z]", "", (value or "").lower())
+
+
+def build_search_index(stories, today=TODAY):
+    """assets/search-index.js — full text of every published story, no fetch needed."""
+    items = []
+    for st in stories:
+        text = story_text(st)
+        if st["id"] == "s1":
+            # S1's article body is hand-written in story.html, not in data/*.py
+            text = text + "\n" + page_article_text(os.path.join(ROOT, "story.html"))
+        text = re.sub(r"\s+", " ", text).strip()
+        items.append({
+            "id": st["id"],
+            "no": st["no"],
+            "label": st["label"],
+            "slug": st["id"],
+            "url": st["href"],
+            "title": st["title"],
+            "subtitle": st["short"],
+            "cat": st["cat"],
+            "catLabel": st["catname"],
+            "patent": st["patent"],
+            "patentKey": patent_key(st["patent"]),
+            "date": st.get("date", today),
+            "minutes": st["minutes"],
+            "text": text,
+        })
+    body = json.dumps(items, ensure_ascii=False, separators=(",", ":"))
+    js = ("/* generated by tools/build_site.py — do not edit by hand */\n"
+          "window.KKOKKOMU_SEARCH_BUILT = \"%s\";\n"
+          "window.KKOKKOMU_SEARCH = %s;\n") % (today, body)
+    out = os.path.join(ROOT, "assets", "search-index.js")
+    open(out, "w", encoding="utf-8").write(js)
+    print("search index:", len(items), "stories,", len(js), "bytes")
+
+
+def kdate(iso):
+    """2026-11-03 -> 2026. 11. 03"""
+    y, m, d = iso.split("-")
+    return f"{y}. {int(m)}. {int(d):02d}"
+
+
+def head(st, url, img):
+    d = st.get("date", TODAY)
+    canon = f"https://rarasister.com/{clean_url(url)}"
+    ld = {
+        "@context": "https://schema.org", "@type": "Article",
+        "headline": st["title"], "description": st["desc"], "inLanguage": "ko-KR",
+        "datePublished": d, "author": {"@type": "Organization", "name": "꼬꼬무 편집부"},
+        "publisher": {"@type": "Organization", "name": "꼬꼬무 · 특허 이야기"},
+        "mainEntityOfPage": canon,
+        "about": {"@type": "Patent", "name": st["ptitle"], "identifier": st["patent"]},
+    }
+    ogimg = "https://rarasister.com/assets/og-story.png"
+    return f"""<title>{e(st['label'])}. {e(st['title'])} — 꼬꼬무</title>
+<meta name="description" content="{e(st['desc'])}">
+<meta name="theme-color" content="#faf9f6">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{canon}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="꼬꼬무 · 특허 이야기">
+<meta property="og:title" content="{e(st['title'])}">
+<meta property="og:description" content="{e(st['ogdesc'])}">
+<meta property="og:url" content="{canon}">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="{d}T19:00:00+09:00">
+<meta property="article:section" content="{e(st['catname'])}">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="{ogimg}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{e(st['title'])} — 꼬꼬무">
+<meta name="twitter:image" content="{ogimg}">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23141413'/%3E%3Ccircle cx='30' cy='29' r='13' fill='none' stroke='%23FAF9F6' stroke-width='3'/%3E%3Ccircle cx='45' cy='44' r='4.5' fill='%23B0492D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="stylesheet" href="../assets/styles.css">
+<script type="application/ld+json">
+{json.dumps(ld, ensure_ascii=False, indent=2)}
+</script>"""
+
+
+def article_head(st):
+    d = st.get("date", TODAY)
+    return f"""      <header class="article-head">
+        <div class="article-head__meta">
+          <span class="kicker kicker--plain">{e(st['catname'])}</span>
+          <span class="dot" aria-hidden="true"></span>
+          <span class="badge">{e(st['patent'])}</span>
+          <span class="dot" aria-hidden="true"></span>
+          <span>읽기 {st['minutes']}분</span>
+          <span class="meta-date"><span class="dot" aria-hidden="true"></span><time datetime="{d}">{kdate(d)}</time></span>
+        </div>
+        <h1 class="article-title">{st['title']}</h1>
+        <p class="article-deck">{st['deck']}</p>
+        <div class="article-byline">
+          <strong>꼬꼬무 편집부</strong>
+          <span aria-hidden="true">·</span>
+          <span>사료 대조 — {e(st['byline_src'])}</span>
+        </div>
+      </header>"""
+
+
+def figure(st):
+    f = st["fig"]
+    if f.get("img"):
+        w, h = f["w"], f["h"]
+        style = f' style="max-width:{f["maxw"]}px"' if f.get("maxw") else ""
+        inner = (f'          <img class="plate__img" src="../assets/patents/{f["img"]}" alt="{e(f["alt"])}" '
+                 f'width="{w}" height="{h}"{style} decoding="async">')
+    else:
+        inner = f'          <svg class="plate__svg" viewBox="0 0 120 120" role="img" aria-label="{e(f["alt"])}"><use href="#{f["svg"]}"/></svg>'
+    return f"""      <figure class="article-figure plate plate--real">
+        <div class="plate__frame">
+          <span class="plate__tag">{e(f['tag'])}</span>
+          <span class="plate__tag plate__tag--left">{e(f['left'])}</span>
+{inner}
+          <span class="plate__corner plate__corner--tl" aria-hidden="true"></span>
+          <span class="plate__corner plate__corner--tr" aria-hidden="true"></span>
+          <span class="plate__corner plate__corner--bl" aria-hidden="true"></span>
+          <span class="plate__corner plate__corner--br" aria-hidden="true"></span>
+        </div>
+        <figcaption>
+          <span>{f['cap']}</span>
+          <span>{f.get('src', 'Google Patents 원문 도면' if f.get('img') else '꼬꼬무 도해 · 원문 도면 없음')}</span>
+        </figcaption>
+      </figure>"""
+
+
+def timeline(tl):
+    items = []
+    for it in tl["items"]:
+        cls = " timeline__item--key" if it.get("key") else ""
+        items.append(f"""              <li class="timeline__item{cls}">
+                <div class="timeline__year">{it['year']}<small>{it['tag']}</small></div>
+                <div class="timeline__dot" aria-hidden="true"><i></i></div>
+                <div class="timeline__body">
+                  <h4>{it['h']}</h4>
+                  <p>{it['p']}</p>
+                </div>
+              </li>""")
+    return f"""
+          <div class="timeline">
+            <div class="timeline__head">
+              <h3 class="timeline__title">{tl['title']}</h3>
+              <span class="timeline__sub">{tl['sub']}</span>
+            </div>
+            <ol class="timeline__items">
+{chr(10).join(items)}
+            </ol>
+          </div>"""
+
+
+def quiz(q):
+    opts, answer = [], None
+    for i, o in enumerate(q["opts"]):
+        key = "ABCD"[i]
+        correct = "true" if i == q["correct"] else "false"
+        if i == q["correct"]:
+            answer = key
+        opts.append(f"""                <button class="guess__opt" type="button" data-correct="{correct}">
+                  <span class="guess__opt-key" aria-hidden="true">{key}</span>
+                  <span>{o}</span>
+                </button>""")
+    return f"""
+          <aside class="guess" aria-labelledby="guessQ">
+            <div class="guess__inner">
+              <p class="guess__label"><span>잠깐, 추측해 보세요</span><span>Spoiler</span></p>
+              <h3 class="guess__q" id="guessQ">{q['q']}</h3>
+              <div class="guess__options" data-guess>
+{chr(10).join(opts)}
+              </div>
+              <div class="guess__result" id="guessResult" aria-live="polite">
+                <div>
+                  <div class="guess__answer">
+                    <p class="guess__status" data-guess-state="right"><svg aria-hidden="true"><use href="#i-check"/></svg><span data-guess-status>정답입니다</span></p>
+                    <p data-guess-text>{q['answer']}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>"""
+
+
+def tipbox(t):
+    paras = "".join(f"\n            <p>{p}</p>" for p in t["paras"])
+    return f"""
+          <aside class="tipbox">
+            <p class="tipbox__label"><svg aria-hidden="true"><use href="#i-book"/></svg>{t.get('label', '용어 팁')}</p>
+            <h3>{t['h']}</h3>{paras}
+          </aside>"""
+
+
+def prose(st):
+    out = [f'        <p class="lede">{st["lede"]}</p>']
+    for act in st["acts"]:
+        out.append(f"""
+        <section class="act">
+          <div class="act__label"><span class="act__no">Act {act['no']}</span><span class="act__rule" aria-hidden="true"></span></div>
+          <h2 class="act__title">{act['title']}</h2>""")
+        for p in act["paras"]:
+            out.append(f"          <p>{p}</p>")
+        if act.get("timeline"):
+            out.append(timeline(act["timeline"]))
+        if act.get("tip"):
+            out.append(tipbox(act["tip"]))
+        if act.get("quiz"):
+            out.append(quiz(act["quiz"]))
+        out.append("        </section>")
+        if act.get("quote"):
+            out.append(f"""
+        <blockquote class="pullquote">
+          <p>{act['quote'][0]}</p>
+          <cite>— {act['quote'][1]}</cite>
+        </blockquote>""")
+    return "      <div class=\"prose\" id=\"articleBody\">\n" + "\n".join(out) + "\n\n"
+
+
+def sources(st):
+    lis = []
+    for s in st["sources"]:
+        if s[1]:
+            lis.append(f'            <li><a href="{s[1]}" target="_blank" rel="noopener">{s[0]}</a> — {s[2]}</li>')
+        else:
+            lis.append(f'            <li>{s[0]} — {s[2]}</li>')
+    return f"""        <section class="sources" aria-labelledby="sourcesTitle">
+          <h2 id="sourcesTitle">사료</h2>
+          <ul>
+{chr(10).join(lis)}
+          </ul>
+        </section>"""
+
+
+def tail(st, nxt, next_published=True):
+    if next_published:
+        nf = nxt["fig"]
+        if nf.get("img"):
+            thumb = f'<img src="../assets/patents/{nf["img"]}" alt="" width="{nf["w"]}" height="{nf["h"]}" loading="lazy" decoding="async">'
+        else:
+            thumb = f'<svg viewBox="0 0 120 120" aria-hidden="true"><use href="#{nf["svg"]}"/></svg>'
+        card = f"""          <a class="next-card" href="{nxt['href']}">
+            <div>
+              <p class="next-card__eyebrow">다음 이야기 · {nxt['label']}</p>
+              <p class="next-card__title">{nxt['short']}</p>
+              <p class="next-card__meta"><span class="badge">{nxt['patent']}</span><span>{nxt['minutes']}분</span></p>
+            </div>
+            <div class="next-card__thumb" aria-hidden="true">{thumb}</div>
+          </a>"""
+    else:
+        card = f"""          <a class="next-card next-card--upcoming" href="../index.html#stories">
+            <div>
+              <p class="next-card__eyebrow">다음 이야기 · {kdate(nxt['date'])} 공개</p>
+              <p class="next-card__title">매일 저녁 7~10시에 한 편씩 이어집니다</p>
+              <p class="next-card__meta"><span>지난 이야기 전체 보기</span></p>
+            </div>
+            <div class="next-card__thumb" aria-hidden="true"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#i-book"/></svg></div>
+          </a>"""
+    return f"""        <div class="tail">
+          <p class="tail__label">꼬리 질문</p>
+          <h2 class="tail__q">{st['tail'][0]}</h2>
+          <p class="tail__text">{st['tail'][1]}</p>
+
+{card}
+
+          <div class="share-row">
+            <span class="share-row__label">공유</span>
+            <button class="share-btn share-btn--kakao" type="button" data-share="kakao">
+              <svg aria-hidden="true"><use href="#i-kakao"/></svg>카카오톡으로 보내기
+            </button>
+            <button class="share-btn" type="button" data-share="copy">
+              <svg aria-hidden="true"><use href="#i-link"/></svg>링크 복사
+            </button>
+          </div>
+        </div>"""
+
+
+def related(st, others):
+    items = []
+    for o in others:
+        items.append(f"""          <a class="related__item" href="../{o['href']}">
+            <p class="related__cat">{o['catname']} · {o['label']}</p>
+            <h3 class="related__title">{o['short']}</h3>
+            <p class="related__meta">{o['patent']} · {o['minutes']}분</p>
+          </a>""")
+    return f"""      <section class="related" aria-labelledby="relatedTitle">
+        <div class="section-head">
+          <h2 class="section-head__title" id="relatedTitle">꼬리를 무는 다른 이야기</h2>
+          <p class="section-head__sub">Brand Secrets · Curios</p>
+        </div>
+        <div class="related__grid">
+{chr(10).join(items)}
+        </div>
+      </section>"""
+
+
+def card(st):
+    f = st["fig"]
+    d = st.get("date", TODAY)
+    if f.get("img"):
+        thumb = (f'              <img src="assets/patents/{f["img"]}" alt="" width="{f["w"]}" height="{f["h"]}" '
+                 f'loading="lazy" decoding="async" title="{e(st["patent"] + " " + st["ptitle"])}">')
+    else:
+        thumb = f'              <svg viewBox="0 0 120 120"><use href="#{f["svg"]}"/></svg>'
+    data_title = f"{st['short']} {st['patent']} {st['ptitle']}"
+    href = st["href"]
+    return f"""        <article class="story-card js-story" data-id="{st['id']}" data-cat="{st['cat']}" data-title="{e(data_title)}">
+          <a class="story-card__link" href="{href}">
+            <div class="story-card__body">
+              <div class="story-card__eyebrow">
+                <span class="story-card__index">{st['label']}</span>
+                <span class="kicker">{st['catname']}</span>
+              </div>
+              <h3 class="story-card__title"><span class="u">{st['short']}</span></h3>
+              <p class="story-card__excerpt">{st['excerpt']}</p>
+              <div class="story-card__meta">
+                <span class="badge">{e(st['patent'])}</span>
+                <span class="dot" aria-hidden="true"></span>
+                <span>{st['minutes']}분</span>
+                <span class="meta-date"><span class="dot" aria-hidden="true"></span><time class="num" datetime="{d}">{kdate(d)}</time></span>
+              </div>
+            </div>
+            <div class="story-card__thumb" aria-hidden="true">
+{thumb}
+              <span class="plate__tag">{e(f['tag'])}</span>
+              <span class="story-card__figcap">{f['cardcap']}</span>
+            </div>
+          </a>
+        </article>"""
+
+
+NAVER_VERIFICATION = '<meta name="naver-site-verification" content="3dda8648f768c88a477e0ca9cb12a982b6ed4b07">'
+
+
+def ensure_naver_verification(idx):
+    """Keep the Naver Search Advisor site-verification tag in index.html's <head>.
+
+    The daily build rewrites index.html in place; this guard restores the tag if the
+    page ever arrives without it (regenerated or replaced), so verification survives.
+    """
+    if "naver-site-verification" in idx:
+        return idx
+    anchor = '<meta name="robots" content="index, follow">'
+    if anchor in idx:
+        return idx.replace(anchor, anchor + "\n" + NAVER_VERIFICATION, 1)
+    if "<head>" in idx:
+        return idx.replace("<head>", "<head>\n" + NAVER_VERIFICATION, 1)
+    return idx
+
+
+def main():
+    global TODAY
+    flags = [a for a in sys.argv[1:] if a.startswith("-")]
+    files = [a for a in sys.argv[1:] if not a.startswith("-")]
+    include_future = "--include-future" in flags or "--all" in flags
+    for a in flags:
+        if a.startswith("--today="):
+            TODAY = a.split("=", 1)[1]
+
+    paths = files or sorted(os.path.join(DATA, f) for f in os.listdir(DATA) if f.endswith(".py"))
+    allst = []
+    for f in paths:
+        allst += load(f)
+    seen = set()
+    story_list = []
+    for s in allst:
+        if s["id"] in seen:
+            continue                      # a story defined twice: first file wins
+        seen.add(s["id"])
+        s.setdefault("date", TODAY)
+        s["href"] = "story.html" if s["id"] == "s1" else f"stories/{s['id']}.html"
+        story_list.append(s)
+
+    def key(s):
+        return (0 if s["cat"] == "brand" else 1, s["no"])
+
+    story_list.sort(key=key)
+    stories = [s for s in story_list if include_future or s["date"] <= TODAY]
+    pub_ids = {s["id"] for s in stories}
+    hidden = [s for s in story_list if s["id"] not in pub_ids]
+    print(f"today(KST) {TODAY} · publish {len(stories)} of {len(story_list)} stories"
+          + (" (future included)" if include_future else f" · holding {len(hidden)}"))
+
+    os.makedirs(os.path.join(ROOT, "stories"), exist_ok=True)
+    built = 0
+    for i, s in enumerate(stories):
+        if s["id"] == "s1":
+            continue  # hand-built page stays
+        others = [stories[(i + k) % len(stories)] for k in (1, 2, 3)]
+        others = [o for o in others if o["id"] != s["id"]][:3]
+        pos = story_list.index(s)
+        nxt = story_list[(pos + 1) % len(story_list)]
+        nxt_published = nxt["id"] in pub_ids
+        page = TPL
+        d = s.get("date", TODAY)
+        page = page.replace("{{issue}}", f"ISSUE 01 — {kdate(d)}")
+        page = page.replace("{{head}}", head(s, s["href"], None))
+        page = page.replace("{{crumb}}", f'<span aria-current="page">{s["label"]} · {s["crumb"]}</span>')
+        page = page.replace('<a href="index.html#stories">브랜드 비화</a>', f'<a href="index.html#stories">{s["catname"]}</a>')
+        page = page.replace("{{article_head}}", article_head(s))
+        page = page.replace("{{figure}}", figure(s))
+        page = page.replace("{{prose}}", prose(s))
+        page = page.replace("{{sources}}", sources(s))
+        page = page.replace("{{tail}}", tail(s, nxt, nxt_published))
+        page = page.replace("{{related}}", related(s, others))
+        page = page.replace("{{footer_current}}", f'<li><a href="{s["href"]}">{s["label"]} · {s["crumb"]}</a></li>')
+        # relative paths for pages under stories/
+        page = page.replace('href="index.html', 'href="../index.html')
+        page = page.replace('href="about.html"', 'href="../about.html"')
+        page = page.replace('href="contact.html"', 'href="../contact.html"')
+        page = page.replace('href="privacy.html"', 'href="../privacy.html"')
+        page = page.replace('href="terms.html"', 'href="../terms.html"')
+        page = page.replace('href="assets/', 'href="../assets/')
+        page = page.replace('src="assets/', 'src="../assets/')
+        page = page.replace('href="stories/', 'href="')
+        page = page.replace('href="story.html"', 'href="../story.html"')
+        out = os.path.join(ROOT, "stories", s["id"] + ".html")
+        open(out, "w", encoding="utf-8").write(page)
+        built += 1
+    print("built pages:", built)
+
+    # a story that has not been published yet must not leave a page behind
+    for s in hidden:
+        p = os.path.join(ROOT, "stories", s["id"] + ".html")
+        if os.path.exists(p):
+            os.remove(p)
+            print("held back page:", s["id"])
+
+    # ---- index story list ----
+    idx = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
+    start = idx.index('      <div class="story-list" id="storyList" aria-live="polite">')
+    end = idx.index('      </div>\n    </div>\n  </section>', start)
+    newlist = '      <div class="story-list" id="storyList" aria-live="polite">\n' + "\n\n".join(card(s) for s in stories) + \
+              '\n\n        <p class="story-list__empty" id="storyEmpty" hidden>조건에 맞는 이야기가 아직 없습니다. <button type="button" class="link-quiet js-reset" style="margin-left:6px">전체 보기</button></p>\n'
+    idx = idx[:start] + newlist + idx[end:]
+    nb = sum(1 for s in stories if s["cat"] == "brand")
+    nc = sum(1 for s in stories if s["cat"] == "curio")
+    idx = re.sub(r'<button class="chip" type="button" data-filter="all"[^>]*>전체 <span class="chip__count">\d+</span>',
+                 f'<button class="chip" type="button" data-filter="all" aria-pressed="true">전체 <span class="chip__count">{nb+nc:02d}</span>', idx)
+    idx = re.sub(r'(data-filter="brand"[^>]*>브랜드 비화 <span class="chip__count">)\d+',
+                 lambda m: m.group(1) + f"{nb:02d}", idx)
+    idx = re.sub(r'(data-filter="curio"[^>]*>기발한 특허 <span class="chip__count">)\d+',
+                 lambda m: m.group(1) + f"{nc:02d}", idx)
+    idx = idx.replace('S1 완결 샘플 · 나머지는 원고 준비 중', f'전 {nb+nc}편 · 5분 완결')
+    idx = re.sub(r'전 \d+편 · 5분 완결', f'전 {nb+nc}편 · 5분 완결', idx)
+    idx = ensure_naver_verification(idx)
+
+    open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8").write(idx)
+    print("index cards:", len(stories))
+
+    # ---- search index (full text of every published story) ----
+    build_search_index(stories)
+
+    # ---- sitemap ----
+    urls = ['<url><loc>https://rarasister.com/</loc><lastmod>%s</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>' % TODAY]
+    for s in stories:
+        loc = "https://rarasister.com/" + clean_url(s["href"])
+        urls.append(f'<url><loc>{loc}</loc><lastmod>{s.get("date", TODAY)}</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>')
+    for p in ("about", "contact", "privacy", "terms"):
+        urls.append(f'<url><loc>https://rarasister.com/{p}</loc><lastmod>{TODAY}</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>')
+    sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  ' + "\n  ".join(urls) + "\n</urlset>\n"
+    open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write(sm)
+    print("sitemap urls:", len(urls))
+
+
+if __name__ == "__main__":
+    main()
