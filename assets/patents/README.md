@@ -49,11 +49,25 @@
 | us3953566-fig1.png | US 3,953,566 | Process for producing porous products (Robert W. Gore, 1976) | FIG. 1·2 | https://patents.google.com/patent/US3953566A/en |
 | us4837932-fig1.png | US 4,837,932 | Locking blade pocket-knife (Carl Elsener, Victorinox, 1989) | FIG. 1·2·6·7 | https://patents.google.com/patent/US4837932A/en |
 | usd517789-fig1.png | US D 517,789 | Footwear (Scott Seamans, Crocs, 2006) | FIG. 1 | https://patents.google.com/patent/USD517789S1/en |
+| us5726435-fig1.png | US 5,726,435 | Optically readable two-dimensional code (Masahiro Hara 외, Denso/Toyota Central R&D, 1998) | FIG. 1 | https://patents.google.com/patent/US5726435A/en |
+| us7931449-fig2.png | US 7,931,449 | Fan (Fitton·Nicolas·Gammack, Dyson Technology, 2011) | FIG. 2 | https://patents.google.com/patent/US7931449B2/en |
+| us2556800-fig2.png | US 2,556,800 | Diaper wrap (Marion Donovan, 1951) | FIG. 1·2 | https://patents.google.com/patent/US2556800A/en |
+| us4687200-fig2.png | US 4,687,200 | Multi-directional switch (Ichiro Shirai, Nintendo, 1987) | FIG. 2 | https://patents.google.com/patent/US4687200A/en |
+| us7849784-fig1.png | US 7,849,784 | Coffee or tea filtering press (Alan J. Adler, 2010) | FIG. 1 | https://patents.google.com/patent/US7849784B2/en |
+| us7832117-fig1.png | US 7,832,117 | Article of footwear including full length composite plate (Nike, 2010) | FIG. 1 | https://patents.google.com/patent/US7832117B2/en |
+| us3733309-fig1.png | US 3,733,309 | Biaxially oriented poly(ethylene terephthalate) bottle (N. C. Wyeth·R. N. Roseveare, DuPont, 1973) | FIG. 1 | https://patents.google.com/patent/US3733309A/en |
+| us465588-fig1.png | US 465,588 | Toilet-paper roll (Seth Wheeler, 1891) | FIG. 1 | https://patents.google.com/patent/US465588A/en |
+| us2292387-fig7.png | US 2,292,387 | Secret communication system (Hedy Kiesler Markey·George Antheil, 1942) | FIG. 7·4 | https://patents.google.com/patent/US2292387A/en |
+| us3351836-fig1.png | US 3,351,836 | Windshield wiper system with intermittent operation (Robert W. Kearns, 1967) | FIG. 1 | https://patents.google.com/patent/US3351836A/en |
+| us6281-fig1.png | US 6,281 | Improvement in the make or form of dress-pins (Walter Hunt, 1849) | FIG. 1–8 | https://patents.google.com/patent/US6281A/en |
+| us4378116-fig1.png | US 4,378,116 | Spatial logical toy (Ernő Rubik, 1983) | FIG. 1 | https://patents.google.com/patent/US4378116A/en |
+| us3285228-fig1.png | US 3,285,228 | Anti-gravity pen (Paul C. Fisher, 1966) | FIG. 1·2 | https://patents.google.com/patent/US3285228A/en |
+| us2485039-fig2.png | US 2,485,039 | Diving unit (J.-Y. Cousteau·É. Gagnan, 1949) | FIG. 2·3 | https://patents.google.com/patent/US2485039A/en |
 | kr1-gazette.png | KR 10-0000001 | 유화염료제조법 (중앙공업연구소, 이범순·김찬구, 1948) | 특허공보 게재면 | https://www.kipo.go.kr/ |
 | gb1-index.png | GB 1 (1617) | Engraving and printing maps, plans, &c. (Aaron Rathborne·Roger Burges) | Chronological Index 1면 | https://archive.org/stream/chronologicalin1617grea_0/chronologicalin1617grea_0_djvu.txt |
 | henry-vi-1449.jpg | Letters Patent, 1449 | Stained glass making (John of Utynam) | 헨리 6세 초상 | https://commons.wikimedia.org/wiki/File:Henri_VI_angleterre.jpg |
 
-이미지 파일 모두 32점. 30편 가운데 27편에 원문 도면을 실었고(S1은 FIG. 1과 FIG. 4 두 장), 원문 도면이 없는 S4·C1·C2·C4는 특허공보·연대기 색인·화학 구조식·초상화로 대체했습니다(아래). 자체 SVG 도해(`#ill-charter`·`#ill-map`·`#ill-flask`)는 더 이상 쓰지 않습니다.
+이미지 파일 모두 60점(도면 59장 + 초상 1장). 30편 가운데 27편에 원문 도면을 실었고(S1은 FIG. 1과 FIG. 4 두 장), 원문 도면이 없는 S4·C1·C2·C4는 특허공보·연대기 색인·화학 구조식·초상화로 대체했습니다(아래). 자체 SVG 도해(`#ill-charter`·`#ill-map`·`#ill-flask`)는 더 이상 쓰지 않습니다.
 
 ## 도면 대신 다른 사료를 실은 편
 
@@ -71,3 +85,19 @@
 - **아마존**(S17)도 원래 주제였던 1-Click 주문 특허가 이미 S9에 있어, 같은 회사의 예측 배송 특허(US 8,615,473)로 바꿨습니다.
 - **US 2,741,079**(테트라팩)은 1956년 등록본 PDF의 스캔 품질이 낮아 300dpi 렌더링 후에도 선이 거칠 수 있습니다. 원문 그대로의 상태입니다.
 - 이번 14편 도면은 모두 Google Patents 원문 PDF(patentimages)에서 받았습니다. 다만 이 작업 환경에서는 patents.google.com 페이지가 HTTP 503으로 막혀 있어, 서지 확인은 Google Patents 페이지를 다른 경로로 읽어 수행했습니다(등록번호·발명자·출원일·등록일·청구항 확인 완료).
+
+## 2026-12-06 ~ 12-19 연재분 (원문 도면 14편)
+
+위 표의 마지막 14행이 이번에 추가한 도면입니다. 모두 Google Patents가 제공하는 원문 PDF를 300dpi로 직접 렌더링해 도면 부분만 잘라낸 것이고(긴 변 1,400px), 절차와 크롭 좌표가 저장소 안에 남아 있어 누구든 같은 파일을 다시 만들 수 있습니다.
+
+```
+python3 tools/patent_fetch.py US5726435A      # 원문 PDF 내려받기 + 300dpi 페이지 렌더
+python3 tools/patent_crop.py s23               # patent_figures.json 의 좌표로 도면 크롭
+```
+
+- **크롭 좌표**: `tools/patent_figures.json` 에 이야기 ID·특허번호·PDF 페이지·페이지 대비 비율 좌표·회전·인셋이 들어 있습니다. `tools/patent_crop.py` 가 그 값으로 `assets/patents/` 를 다시 만듭니다. 이전 연재분 README에 적힌 `tools/crop_one.py` 는 이 두 파일로 대체됐습니다.
+- **US 4,687,200**(닌텐도, S26)의 FIG. 1 은 도면 자체에 `PRIOR ART` 라고 적힌 종래 기술입니다. 발명을 그린 FIG. 2 를 실었습니다.
+- **US 3,733,309**(듀폰 PET, S29)는 도면 열 장 가운데 아홉 장이 성형 기계와 금형이라 FIG. 1(장치)을 실었습니다. 병 자체는 제10도에 단면으로 한 번만 나오고, 그 도면은 해상도가 낮아(414×697) 크게 쓰지 않았습니다.
+- **US 6,281**(안전핀, C26)은 1849년 문서라 인쇄 서체가 아니라 손으로 쓴 제목(`W. Hunt / Pin / Patented Apr. 10. 1849`)이 도면 위에 있습니다. 그 부분을 함께 잘라 사료로 실었습니다.
+- **US 465,588**(휴지 롤, C23)과 **US 2,485,039**(아쿠아렁, C29)는 도면에 사람이 등장하는 편입니다. 도면에 그려진 사용 장면이 이야기의 근거이므로 자르지 않고 살렸습니다.
+- **크록스**(원래 S25 계획)는 직전 연재분 C22(US D 517,789, 2026-12-05 발행)가 이미 같은 신발을 다뤄, 중복을 피하려고 마리온 도노반의 방수 기저귀 커버(US 2,556,800)로 대체했습니다.

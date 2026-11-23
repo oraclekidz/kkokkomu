@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>S17. 주문이 오기 전에 떠난 택배 — 꼬꼬무</title>
+<meta name="description" content="아마존 예측 배송 특허 US 8,615,473 ‘Method and system for anticipatory package shipping’. 주소 없이 먼저 보내는 택배와 처분 결정 규칙.">
+<meta name="theme-color" content="#faf9f6">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://rarasister.com/stories/s17">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="꼬꼬무 · 특허 이야기">
+<meta property="og:title" content="주문이 오기 전에 떠난 택배">
+<meta property="og:description" content="주문 전에 떠난 택배. 아마존이 2004년에 출원하고 2013년에 등록한 예측 배송 특허의 구조.">
+<meta property="og:url" content="https://rarasister.com/stories/s17">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2026-11-23T19:00:00+09:00">
+<meta property="article:section" content="브랜드 비화">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://rarasister.com/assets/og-story.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="주문이 오기 전에 떠난 택배 — 꼬꼬무">
+<meta name="twitter:image" content="https://rarasister.com/assets/og-story.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23141413'/%3E%3Ccircle cx='30' cy='29' r='13' fill='none' stroke='%23FAF9F6' stroke-width='3'/%3E%3Ccircle cx='45' cy='44' r='4.5' fill='%23B0492D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="stylesheet" href="../assets/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "주문이 오기 전에 떠난 택배",
+  "description": "아마존 예측 배송 특허 US 8,615,473 ‘Method and system for anticipatory package shipping’. 주소 없이 먼저 보내는 택배와 처분 결정 규칙.",
+  "inLanguage": "ko-KR",
+  "datePublished": "2026-11-23",
+  "author": {
+    "@type": "Organization",
+    "name": "꼬꼬무 편집부"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "꼬꼬무 · 특허 이야기"
+  },
+  "mainEntityOfPage": "https://rarasister.com/stories/s17",
+  "about": {
+    "@type": "Patent",
+    "name": "Method and system for anticipatory package shipping",
+    "identifier": "US 8,615,473 B2"
+  }
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FBWC0HSGHM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FBWC0HSGHM');
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.4 15.4 21 21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13.5 6.5 19.5 12l-6 5.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7.8v4.6l3 1.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19.5 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13.5a4 4 0 0 0 5.7 0l2.8-2.8a4 4 0 0 0-5.6-5.7l-1.4 1.3M14 10.5a4 4 0 0 0-5.7 0L5.5 13.3a4 4 0 0 0 5.6 5.7l1.4-1.3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-kakao" viewBox="0 0 24 24"><path d="M12 3.4c-4.8 0-8.6 3-8.6 6.7 0 2.4 1.6 4.5 4 5.8l-.9 3.3c-.1.4.3.6.6.4l3.7-2.5c.4 0 .8.1 1.2.1 4.8 0 8.6-3 8.6-6.7S16.8 3.4 12 3.4Z" fill="currentColor"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="12" r="2.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="18.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8.3 10.7 15.7 6.8M8.3 13.3l7.4 3.9" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.2A2.2 2.2 0 0 1 6.2 3H20v15.4H6.2A2.2 2.2 0 0 0 4 20.6V5.2Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 7.5h8M8 11h5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M9.5 5.5 16 12l-6.5 6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m3.8 6.8 8.2 6.4 8.2-6.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+
+    <!-- HERO: cup sleeve patent plate -->
+    <symbol id="ill-sleeve" viewBox="0 0 420 470">
+      <defs>
+        <pattern id="p-dimple" width="9" height="9" patternUnits="userSpaceOnUse">
+          <circle cx="4.5" cy="4.5" r="1.25" fill="currentColor" opacity=".5"/>
+        </pattern>
+        <marker id="p-arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M1 5h8M6 1.6 9 5l-3 3.4" fill="none" stroke="currentColor" stroke-width="1"/>
+        </marker>
+    
+    <symbol id="ill-charter" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M30 20h60v64H30z"/>
+        <path d="M30 20c-7 0-7 9 0 9M90 20c7 0 7 9 0 9" opacity=".45"/>
+        <path d="M38 32h44M38 40h44M38 48h30M38 56h36M38 64h22" opacity=".7"/>
+        <path d="M30 84c2 8 14 12 30 12s28-4 30-12" opacity=".5"/>
+        <circle cx="60" cy="92" r="12"/>
+        <path d="M60 85v14M55 89h10" opacity=".55"/>
+        <path d="M18 106h84" stroke-dasharray="1 5" opacity=".35"/>
+      </g>
+    </symbol>
+    <symbol id="ill-map" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M16 26l29-9 30 9 29-9v70l-29 9-30-9-29 9z"/>
+        <path d="M45 17v70M75 26v70" opacity=".55"/>
+        <path d="M16 62c10-6 19 5 30-1s19 6 29 0 20-4 29 2" opacity=".45"/>
+        <circle cx="60" cy="46" r="10"/>
+        <path d="M60 31v5M60 56v5M45 46h5M70 46h5" opacity=".6"/>
+        <path d="M60 38l3.4 9.6L60 45l-3.4 2.6z" fill="currentColor" stroke="none"/>
+        <path d="M16 104h88" stroke-dasharray="1 5" opacity=".35"/>
+      </g>
+    </symbol>
+    <symbol id="ill-flask" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M50 18h20v19l17 45a9 9 0 0 1-8 12H41a9 9 0 0 1-8-12l17-45z"/>
+        <path d="M44 72h32" opacity=".55"/>
+        <path d="M33 84c6-3 12 3 18 0s13 3 19 0 12 3 17 0" opacity=".45"/>
+        <path d="M44 14h32" opacity=".7"/>
+        <circle cx="53" cy="89" r="2.6" fill="currentColor" stroke="none"/>
+        <circle cx="66" cy="92" r="1.9" fill="currentColor" stroke="none"/>
+        <circle cx="60" cy="80" r="1.5" fill="currentColor" stroke="none"/>
+      </g>
+    </symbol>
+  </defs>
+      <g fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round">
+        <!-- steam -->
+        <g opacity=".28" stroke-width="1">
+          <path d="M180 106c-7-11 7-17 0-28"/>
+          <path d="M210 100c-7-11 7-17 0-28"/>
+          <path d="M240 106c-7-11 7-17 0-28"/>
+        </g>
+        <!-- cup -->
+        <ellipse cx="210" cy="132" rx="72" ry="15" opacity=".9"/>
+        <ellipse cx="210" cy="132" rx="63" ry="10.5" stroke-dasharray="2 4" opacity=".35"/>
+        <path d="M138 132 166 404"/>
+        <path d="M282 132 254 404"/>
+        <path d="M166 404a44 10 0 0 0 88 0"/>
+        <path d="M166 404a44 10 0 0 1 88 0" stroke-dasharray="2 4" opacity=".35"/>
+        <!-- sleeve -->
+        <path d="M134 212c34 10 118 10 152 0l-8 118c-34 10-102 10-136 0Z" stroke="#b0492d" stroke-width="1.5"/>
+        <path d="M134 212c34 10 118 10 152 0l-8 118c-34 10-102 10-136 0Z" fill="url(#p-dimple)" stroke="none"/>
+        <path d="M128 209c3 2 5 4 6 7M288 209c-3 2-5 4-6 7" opacity=".55"/>
+        <!-- shadow -->
+        <ellipse cx="210" cy="418" rx="66" ry="12" stroke-dasharray="1 6" opacity=".3"/>
+        <!-- callouts -->
+        <g opacity=".75" stroke-width=".9">
+          <path d="M104 240h20l14 12"/>
+          <path d="M104 292h20l34 6"/>
+          <path d="M104 356h20l44 6"/>
+        </g>
+        <g opacity=".85">
+          <circle cx="92" cy="240" r="10.5" stroke-width=".9"/>
+          <circle cx="92" cy="292" r="10.5" stroke-width=".9"/>
+          <circle cx="92" cy="356" r="10.5" stroke-width=".9"/>
+        </g>
+        <g fill="currentColor" stroke="none" font-family="Instrument Serif, serif" font-size="10.5" text-anchor="middle" opacity=".8">
+          <text x="92" y="243.5">10</text>
+          <text x="92" y="295.5">46</text>
+          <text x="92" y="359.5">12</text>
+        </g>
+        <!-- dimension -->
+        <g opacity=".5" stroke-width=".9">
+          <path d="M312 212v118" stroke-dasharray="3 4"/>
+          <path d="M305 212h14M305 330h14"/>
+          <path d="M138 436h144" marker-start="url(#p-arw)" marker-end="url(#p-arw)"/>
+          <path d="M138 430v12M282 430v12"/>
+        </g>
+        <g fill="currentColor" stroke="none" font-family="Pretendard, sans-serif" font-size="8.5" letter-spacing="1" opacity=".55">
+          <text x="318" y="266">H 120</text>
+          <text x="318" y="277">mm</text>
+          <text x="210" y="456" text-anchor="middle">Ø 90 mm</text>
+          <text x="30" y="462" font-family="Instrument Serif, serif" font-size="9" letter-spacing="1.4" opacity=".7">CUP HOLDER · US 5,425,497</text>
+        </g>
+      </g>
+    </symbol>
+
+    <!-- card motifs -->
+    <symbol id="ill-brick" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <rect x="20" y="52" width="80" height="34"/>
+        <path d="M20 52 34 36h72l-6 16"/>
+        <path d="M100 52v34"/>
+        <circle cx="36" cy="45" r="6"/><circle cx="54" cy="45" r="6"/><circle cx="72" cy="45" r="6"/><circle cx="90" cy="45" r="6"/>
+        <path d="M28 62h64M28 70h64" opacity=".45"/>
+        <path d="M14 96h92" stroke-dasharray="1 5" opacity=".35"/>
+      </g>
+    </symbol>
+    <symbol id="ill-cyclone" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <circle cx="58" cy="58" r="40"/>
+        <circle cx="58" cy="58" r="26" stroke-dasharray="3 4" opacity=".7"/>
+        <circle cx="58" cy="58" r="11"/>
+        <path d="M58 18a40 40 0 0 1 0 80" opacity=".5"/>
+        <circle cx="58" cy="58" r="2.2" fill="currentColor" stroke="none"/>
+        <g opacity=".55"><circle cx="16" cy="96" r="2.4"/><circle cx="28" cy="102" r="2.4"/><circle cx="10" cy="108" r="2.4"/></g>
+      </g>
+    </symbol>
+    <symbol id="ill-note" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+        <path d="M24 20h54l20 20v60H24Z"/>
+        <path d="M78 20v20h20"/>
+        <path d="M34 54h50M34 66h50M34 78h32" opacity=".45"/>
+        <path d="M96 104h14M110 104v-14" stroke-dasharray="2 3" opacity=".5"/>
+      </g>
+    </symbol>
+    <symbol id="ill-waffle" viewBox="0 0 120 120">
+      <defs><pattern id="p-lattice" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <path d="M0 0h16M0 0v16" fill="none" stroke="currentColor" stroke-width="1.1" opacity=".55"/>
+      </pattern></defs>
+      <g fill="none" stroke="currentColor" stroke-width="1.1">
+        <path d="M18 34c0-9 6-14 16-14h52c10 0 16 5 16 14v44c0 9-6 14-16 14H34c-10 0-16-5-16-14Z"/>
+        <path d="M18 34c0-9 6-14 16-14h52c10 0 16 5 16 14v44c0 9-6 14-16 14H34c-10 0-16-5-16-14Z" fill="url(#p-lattice)" stroke="none"/>
+      </g>
+    </symbol>
+    <symbol id="ill-wheel" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <circle cx="58" cy="52" r="34"/>
+        <circle cx="58" cy="52" r="7"/>
+        <path d="M58 18v68M24 52h68M34 28l48 48M82 28 34 76" opacity=".45"/>
+        <path d="M10 94h100" stroke-width="1.6"/>
+        <path d="M18 88v6M30 88v6M42 88v6M54 88v6M66 88v6M78 88v6M90 88v6M102 88v6" opacity=".5"/>
+      </g>
+    </symbol>
+    <symbol id="ill-swing" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M14 18h92"/>
+        <path d="M46 18 32 86M74 18l14 68"/>
+        <path d="M30 86h48"/>
+        <path d="M40 86v8M68 86v8" opacity=".6"/>
+        <path d="M84 34c8 10 8 22 0 32" stroke-dasharray="2 4" opacity=".6"/>
+        <path d="M92 30c11 13 11 30 0 42" stroke-dasharray="2 4" opacity=".35"/>
+        <circle cx="54" cy="80" r="2.4" fill="currentColor" stroke="none"/>
+      </g>
+    </symbol>
+    <symbol id="ill-broken" viewBox="0 0 220 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+        <path d="M14 60h58M100 60h20M148 60h58" stroke-dasharray="4 6" opacity=".7"/>
+        <path d="M66 44c8 8 8 24 0 32" opacity=".5"/>
+        <path d="M108 40l-12 20 18 6-10 18" stroke-width="1.6"/>
+        <circle cx="14" cy="60" r="3"/><circle cx="206" cy="60" r="3"/>
+      </g>
+    </symbol>
+
+    <symbol id="ill-charter" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M30 20h60v64H30z"/>
+        <path d="M30 20c-7 0-7 9 0 9M90 20c7 0 7 9 0 9" opacity=".45"/>
+        <path d="M38 32h44M38 40h44M38 48h30M38 56h36M38 64h22" opacity=".7"/>
+        <path d="M30 84c2 8 14 12 30 12s28-4 30-12" opacity=".5"/>
+        <circle cx="60" cy="92" r="12"/>
+        <path d="M60 85v14M55 89h10" opacity=".55"/>
+        <path d="M18 106h84" stroke-dasharray="1 5" opacity=".35"/>
+      </g>
+    </symbol>
+    <symbol id="ill-map" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M16 26l29-9 30 9 29-9v70l-29 9-30-9-29 9z"/>
+        <path d="M45 17v70M75 26v70" opacity=".55"/>
+        <path d="M16 62c10-6 19 5 30-1s19 6 29 0 20-4 29 2" opacity=".45"/>
+        <circle cx="60" cy="46" r="10"/>
+        <path d="M60 31v5M60 56v5M45 46h5M70 46h5" opacity=".6"/>
+        <path d="M60 38l3.4 9.6L60 45l-3.4 2.6z" fill="currentColor" stroke="none"/>
+        <path d="M16 104h88" stroke-dasharray="1 5" opacity=".35"/>
+      </g>
+    </symbol>
+    <symbol id="ill-flask" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <path d="M50 18h20v19l17 45a9 9 0 0 1-8 12H41a9 9 0 0 1-8-12l17-45z"/>
+        <path d="M44 72h32" opacity=".55"/>
+        <path d="M33 84c6-3 12 3 18 0s13 3 19 0 12 3 17 0" opacity=".45"/>
+        <path d="M44 14h32" opacity=".7"/>
+        <circle cx="53" cy="89" r="2.6" fill="currentColor" stroke="none"/>
+        <circle cx="66" cy="92" r="1.9" fill="currentColor" stroke="none"/>
+        <circle cx="60" cy="80" r="1.5" fill="currentColor" stroke="none"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="masthead">
+      <p class="masthead__tagline">꼬리에 꼬리를 무는 특허 이야기 <span class="masthead__en">· Patent stories, retold</span></p>
+      <p class="masthead__issue num">ISSUE 01 — 2026. 11. 23</p>
+    </div>
+    <div class="header-main">
+      <a class="brand" href="../index.html" aria-label="꼬꼬무 특허 이야기, 홈">
+        <span class="brand__mark">꼬꼬무</span>
+        <span class="brand__sub">특허 이야기</span>
+      </a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a class="nav__link" href="../index.html">홈</a>
+        <a class="nav__link" href="../index.html#stories" aria-current="page">이야기</a>
+        <a class="nav__link" href="../about.html">소개</a>
+        <a class="nav__link" href="../contact.html">문의</a>
+      </nav>
+      <div class="header-tools">
+        <label class="search-field">
+          <svg aria-hidden="true"><use href="#i-search"/></svg>
+          <input type="search" placeholder="본문·특허번호 검색" aria-label="이야기 검색" data-search>
+        </label>
+        <span class="header-tools__divider" aria-hidden="true"></span>
+        <a class="icon-btn" href="../index.html#stories" aria-label="목록으로">
+          <svg aria-hidden="true"><use href="#i-book"/></svg>
+        </a>
+        <button class="icon-btn js-search-toggle" type="button" aria-label="검색 열기" aria-expanded="false" aria-controls="mobileSearch">
+          <svg aria-hidden="true"><use href="#i-search"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-search" id="mobileSearch" hidden>
+      <label class="search-field" style="display:flex;min-width:0;width:100%">
+        <svg aria-hidden="true"><use href="#i-search"/></svg>
+        <input type="search" placeholder="본문·브랜드·특허번호 검색" aria-label="이야기 검색 (모바일)" data-search>
+      </label>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <article class="article">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <a href="../index.html">홈</a>
+        <svg aria-hidden="true"><use href="#i-chevron"/></svg>
+        <a href="../index.html#stories">브랜드 비화</a>
+        <svg aria-hidden="true"><use href="#i-chevron"/></svg>
+        <span aria-current="page">S17 · 아마존</span>
+      </nav>
+
+      <header class="article-head">
+        <div class="article-head__meta">
+          <span class="kicker kicker--plain">브랜드 비화</span>
+          <span class="dot" aria-hidden="true"></span>
+          <span class="badge">US 8,615,473 B2</span>
+          <span class="dot" aria-hidden="true"></span>
+          <span>읽기 6분</span>
+          <span class="meta-date"><span class="dot" aria-hidden="true"></span><time datetime="2026-11-23">2026. 11. 23</time></span>
+        </div>
+        <h1 class="article-title">주문이 오기 전에 떠난 택배</h1>
+        <p class="article-deck">2004년 12월 17일 아마존은 ‘예측 배송’이라는 이름의 방법을 출원했다. 2013년 등록된 특허의 청구항 1은 이렇게 시작한다. 배송지는 정하지 않은 채, 목적지 권역까지만 먼저 보낸다. 물건이 창고에 있는 시간을 줄이는 대신, 팔리지 않을 위험을 회사가 진다.</p>
+        <div class="article-byline">
+          <strong>꼬꼬무 편집부</strong>
+          <span aria-hidden="true">·</span>
+          <span>사료 대조 — USPTO 공개특허 · Amazon Technologies · 2013년 보도 자료</span>
+        </div>
+      </header>
+
+      <figure class="article-figure plate plate--real">
+        <div class="plate__frame">
+          <span class="plate__tag">FIG. 1</span>
+          <span class="plate__tag plate__tag--left">ANTICIPATORY SHIPPING</span>
+          <img class="plate__img" src="../assets/patents/us8615473-fig1.png" alt="US 8,615,473 「Method and system for anticipatory package shipping」 제1도 — 공급자, 공급자 창고, 유통 센터, 택배사, 고객이 화살표로 연결된 물류 시스템 구성도." width="990" height="1300" decoding="async">
+          <span class="plate__corner plate__corner--tl" aria-hidden="true"></span>
+          <span class="plate__corner plate__corner--tr" aria-hidden="true"></span>
+          <span class="plate__corner plate__corner--bl" aria-hidden="true"></span>
+          <span class="plate__corner plate__corner--br" aria-hidden="true"></span>
+        </div>
+        <figcaption>
+          <span>US 8,615,473 — FIG. 1 (2013). 공급자(320)와 창고(312), 유통 센터(310), 택배사(350), 고객(340)이 한 장에 그려져 있다. 예측 배송은 이 화살표의 순서를 바꾸는 일이다.</span>
+          <span>Google Patents 원문 도면</span>
+        </figcaption>
+      </figure>
+
+      <div class="prose" id="articleBody">
+        <p class="lede">2013년 12월 24일 등록된 8,615,473번 특허의 제목은 「Method and system for anticipatory package shipping」— ‘예측 배송 방법과 시스템’이다. 출원일은 같은 해 8월 24일이지만, 문서는 스스로를 2004년 12월 17일에 낸 출원의 계속출원이라고 밝힌다. 발명자는 조엘 R. 스피겔을 비롯한 네 명, 권리자는 아마존 테크놀로지스다.</p>
+
+        <section class="act">
+          <div class="act__label"><span class="act__no">Act 01</span><span class="act__rule" aria-hidden="true"></span></div>
+          <h2 class="act__title">창고에 머무는 시간</h2>
+          <p>온라인 상점의 물류는 대개 ‘주문 → 포장 → 배송’ 순서로 움직인다. 이 순서에는 값이 붙는다. 물건이 팔릴 때까지 창고에 있어야 하고, 팔린 뒤에는 포장과 집하를 기다려야 한다. 12월의 택배는 그 기다림이 길어지는 계절이다. 소비자는 ‘언제 오느냐’를 묻고, 회사는 ‘얼마나 빨리 보낼 수 있느냐’를 계산한다.</p>
+          <p>특허의 배경 설명은 이 계산을 정직하게 적는다. 인터넷 상점의 큰 장점은 값싼 운영이지만, 결정적인 약점은 물건이 손에 바로 오지 않는다는 점이다. 그 간격을 메우려면 창고를 늘리거나, 배송을 빠르게 하거나, 아니면 순서 자체를 바꿔야 한다.</p>
+          <p>아마존이 택한 것은 세 번째였다. 물건을 고객에게 보내는 대신, 고객이 있을 법한 권역으로 먼저 보내 두는 것. 주문은 그다음에 도착한다.</p>
+        </section>
+
+        <section class="act">
+          <div class="act__label"><span class="act__no">Act 02</span><span class="act__rule" aria-hidden="true"></span></div>
+          <h2 class="act__title">주소를 비워 둔 택배</h2>
+          <p>청구항 1의 문장은 법률 문서답게 건조하지만, 읽어 보면 이상한 장면이 나온다. ‘주문이 일어나기 전에 이미 배송된 물건’을 포함하는 패키지의 상태를 판단하고, 그 패키지가 ‘배송 시점에 배송지 주소를 완전히 특정하지 않은 채’ 목적지 권역으로 보내졌다고 적는다. 즉 이 택배는 목적지 도시까지는 정해져 있지만, 어느 집으로 갈지는 아직 모른다.</p>
+          <p>그 상태로 유통 센터에 도착한 패키지는 두 갈래를 만난다. 그 권역에서 주문이 들어오면 가장 가까운 곳에서 마지막 구간만 달려가면 된다. 주문이 없으면 다른 권역으로 돌리거나, 할인해서 팔거나, 창고로 되돌린다. 청구항은 이 판단에 ‘하나 이상의 사업 변수’를 쓰라고 적는다. 계절, 재고, 가격, 반품 비율 같은 것들이다.</p>
+          <p>도면도 그 구조를 그대로 보여준다. 공급자와 창고, 유통 센터, 택배사, 고객이 화살표로 이어지고, 그 사이를 오가는 것이 ‘주문’이 아니라 ‘패키지’다. 순서가 뒤집힌 물류의 지도다.</p>
+        </section>
+
+        <section class="act">
+          <div class="act__label"><span class="act__no">Act 03</span><span class="act__rule" aria-hidden="true"></span></div>
+          <h2 class="act__title">팔리지 않을 위험은 누가 지는가</h2>
+          <p>예측 배송의 진짜 비용은 운송비가 아니라 ‘안 팔릴 위험’이다. 먼저 보낸 물건이 그 권역에서 팔리지 않으면, 회사는 왕복 운송비와 보관비를 떠안는다. 그래서 이 특허는 배송 방법보다 처분 규칙에 더 많은 청구항을 쓴다. 어떤 조건에서 그 패키지를 그 권역에 그대로 두고, 어떤 조건에서 회수할지를 미리 정해 두는 것이다.</p>
+          <p>이 대목에서 특허는 마케팅 문서가 아니라 위험 관리 문서가 된다. ‘빠르게 보낸다’는 약속은 언제나 누군가의 계산 위에 서 있다. 소비자가 느끼는 하루의 단축은, 회사가 감당하기로 정한 손실의 범위 안에서만 가능하다.</p>
+          <p>그래서 이 특허는 오랫동안 제품이 되지 못했다. 2013년 등록 당시 한 미국 신문이 이 문서를 보도했지만, 회사가 실제로 예측 배송을 상용화했다고 밝힌 적은 없다. 등록된 특허와 출시된 서비스 사이에는 늘 이만큼의 거리가 있다.</p>
+        </section>
+
+        <section class="act">
+          <div class="act__label"><span class="act__no">Act 04</span><span class="act__rule" aria-hidden="true"></span></div>
+          <h2 class="act__title">기다림을 줄이는 세 가지 방법</h2>
+          <p>오늘의 빠른 배송은 이 특허와 다른 방식으로 같은 문제를 풀었다. 도시 곳곳에 작은 거점을 두고, 그 거점에서 마지막 구간만 달리게 하는 방식이다. 물건은 여전히 주문 뒤에 움직이지만, 움직이는 거리가 짧아졌다. 예측 배송이 ‘시간’을 앞당겼다면, 근접 배송은 ‘거리’를 줄였다.</p>
+          <p>두 방법의 차이는 위험이 어디에 머무는가다. 예측 배송은 위험을 회사가 먼저 지고, 근접 배송은 위험을 재고로 바꿔 도시에 쌓아 둔다. 어느 쪽이든 소비자가 보는 것은 같다. 주문 버튼을 누른 뒤 문 앞까지의 시간이 짧다는 것.</p>
+          <p>특허 문서를 읽는 재미는 여기에 있다. 세상이 어떤 방식으로 문제를 풀었는지가 아니라, 어떤 방식으로 풀려고 했는지가 남아 있다. 등록되지 않은 아이디어도 문서로 남으면, 20년 뒤 누군가의 출발점이 된다.</p>
+
+          <div class="timeline">
+            <div class="timeline__head">
+              <h3 class="timeline__title">사건 연표 — 2004~2013</h3>
+              <span class="timeline__sub">Seattle → 특허청 → 신문 지면</span>
+            </div>
+            <ol class="timeline__items">
+              <li class="timeline__item">
+                <div class="timeline__year">2004<small>FILED</small></div>
+                <div class="timeline__dot" aria-hidden="true"><i></i></div>
+                <div class="timeline__body">
+                  <h4>12월 17일, 원출원</h4>
+                  <p>주문 전에 권역으로 먼저 보내는 배송 방법과 처분 규칙을 청구한다.</p>
+                </div>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__year">2011<small>DIVISION</small></div>
+                <div class="timeline__dot" aria-hidden="true"><i></i></div>
+                <div class="timeline__body">
+                  <h4>11월 28일, 분할출원</h4>
+                  <p>하나의 출원에서 여러 특허를 낳는 계속출원의 사슬이 시작된다.</p>
+                </div>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__year">2012<small>FILED</small></div>
+                <div class="timeline__dot" aria-hidden="true"><i></i></div>
+                <div class="timeline__body">
+                  <h4>8월 24일, 이 특허의 출원</h4>
+                  <p>패키지 상태 판단과 처분 결정에 초점을 맞춘 청구항으로 다시 나뉜다.</p>
+                </div>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__year">2013<small>GRANTED</small></div>
+                <div class="timeline__dot" aria-hidden="true"><i></i></div>
+                <div class="timeline__body">
+                  <h4>12월 24일, US 8,615,473 등록</h4>
+                  <p>같은 달 미국 신문이 이 특허를 보도하며 ‘주문 전 배송’이 화제가 된다.</p>
+                </div>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__year">2013<small>REPORT</small></div>
+                <div class="timeline__dot" aria-hidden="true"><i></i></div>
+                <div class="timeline__body">
+                  <h4>상용화 여부는 확인되지 않음</h4>
+                  <p>회사는 예측 배송을 실제로 운영한다고 밝히지 않았다.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+
+
+        <section class="sources" aria-labelledby="sourcesTitle">
+          <h2 id="sourcesTitle">사료</h2>
+          <ul>
+            <li><a href="https://patents.google.com/patent/US8615473B2/en" target="_blank" rel="noopener">US 8,615,473 B2 「Method and system for anticipatory package shipping」 전문</a> — 출원 2012. 8. 24 (원출원 2004. 12. 17) / 등록 2013. 12. 24, Joel R. Spiegel 외, Amazon Technologies</li>
+            <li><a href="https://patents.google.com/patent/US8086546B2/en" target="_blank" rel="noopener">US 8,086,546 B2 (원출원 계열)</a> — 2004년 12월 17일 출원된 예측 배송 특허의 모출원</li>
+            <li>Amazon, 연차보고서 및 물류 관련 공시 — 유통 센터 네트워크와 배송 속도에 관한 회사 설명</li>
+          </ul>
+        </section>
+
+        <div class="tail">
+          <p class="tail__label">꼬리 질문</p>
+          <h2 class="tail__q">그렇다면 손안에서 여닫히는 화면은 무엇이 붙잡아 주는 걸까?</h2>
+          <p class="tail__text">2019년 2월 19일, 한 회사가 접는 휴대폰의 경첩을 먼저 문서로 남겼다. 하루 뒤 무대에 오른 그 폰은, 각도마다 화면이 서 있었다. 다음 이야기에서 이어진다.</p>
+
+          <a class="next-card next-card--upcoming" href="../index.html#stories">
+            <div>
+              <p class="next-card__eyebrow">다음 이야기 · 2026. 11. 24 공개</p>
+              <p class="next-card__title">매일 저녁 7~10시에 한 편씩 이어집니다</p>
+              <p class="next-card__meta"><span>지난 이야기 전체 보기</span></p>
+            </div>
+            <div class="next-card__thumb" aria-hidden="true"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#i-book"/></svg></div>
+          </a>
+
+          <div class="share-row">
+            <span class="share-row__label">공유</span>
+            <button class="share-btn share-btn--kakao" type="button" data-share="kakao">
+              <svg aria-hidden="true"><use href="#i-kakao"/></svg>카카오톡으로 보내기
+            </button>
+            <button class="share-btn" type="button" data-share="copy">
+              <svg aria-hidden="true"><use href="#i-link"/></svg>링크 복사
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <section class="related" aria-labelledby="relatedTitle">
+        <div class="section-head">
+          <h2 class="section-head__title" id="relatedTitle">꼬리를 무는 다른 이야기</h2>
+          <p class="section-head__sub">Brand Secrets · Curios</p>
+        </div>
+        <div class="related__grid">
+          <a class="related__item" href="../stories/c1.html">
+            <p class="related__cat">기발한 특허 · C1</p>
+            <h3 class="related__title">가장 오래된 특허, 색유리</h3>
+            <p class="related__meta">Letters Patent, 1449 · 5분</p>
+          </a>
+          <a class="related__item" href="../stories/c2.html">
+            <p class="related__cat">기발한 특허 · C2</p>
+            <h3 class="related__title">영국 특허 1호, 런던 지도</h3>
+            <p class="related__meta">GB 1 (1617) · 5분</p>
+          </a>
+          <a class="related__item" href="../stories/c3.html">
+            <p class="related__cat">기발한 특허 · C3</p>
+            <h3 class="related__title">미국 특허 1호, 증기기관차 바퀴</h3>
+            <p class="related__meta">US 1 · 6분</p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="footer-brand__mark">꼬꼬무</p>
+        <p class="footer-brand__text">꼬리에 꼬리를 무는 특허 이야기. 공개된 특허 원문과 기록을 대조해, 브랜드와 발명의 결정적 순간을 5분 분량의 이야기로 다시 씁니다.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col__title">매거진</p>
+        <ul>
+          <li><a href="../index.html">홈</a></li>
+          <li><a href="../index.html#stories">전체 이야기</a></li>
+          <li><a href="s17.html">S17 · 아마존</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col__title">사이트</p>
+        <ul>
+          <li><a href="../about.html">소개 (About)</a></li>
+          <li><a href="../contact.html">문의 (Contact)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col__title">정책</p>
+        <ul>
+          <li><a href="../privacy.html">개인정보처리방침</a></li>
+          <li><a href="../terms.html">이용약관</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-note">본 사이트의 모든 이야기는 미국·한국 특허청에 공개된 특허 원문과 언론 보도를 근거로 재구성한 것이며, 특허의 권리 범위에 대한 법적 해석을 제공하지 않습니다.</p>
+    <div class="footer-bottom">
+      <span>© 2026 꼬꼬무 · 특허 이야기. All rights reserved.</span>
+      <span class="num">ISSN — · Vol. 01</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+[
+ {
+  "story": "s23",
+  "file": "us5726435-fig1.png",
+  "patent": "US5726435A",
+  "page": 2,
+  "box": [
+   0.15,
+   0.12,
+   0.82,
+   0.57
+  ],
+  "tag": "FIG. 1"
+ },
+ {
+  "story": "s24",
+  "file": "us7931449-fig2.png",
+  "patent": "US7931449B2",
+  "page": 5,
+  "box": [
+   0.08,
+   0.1,
+   0.92,
+   0.8
+  ],
+  "tag": "FIG. 2"
+ },
+ {
+  "story": "s25",
+  "file": "us2556800-fig2.png",
+  "patent": "US2556800A",
+  "page": 1,
+  "box": [
+   0.02,
+   0.04,
+   0.56,
+   0.6
+  ],
+  "tag": "FIG. 1·2"
+ },
+ {
+  "story": "s26",
+  "file": "us4687200-fig2.png",
+  "patent": "US4687200A",
+  "page": 2,
+  "box": [
+   0.17,
+   0.455,
+   0.7,
+   0.79
+  ],
+  "tag": "FIG. 2"
+ },
+ {
+  "story": "s27",
+  "file": "us7849784-fig1.png",
+  "patent": "US7849784B2",
+  "page": 2,
+  "box": [
+   0.06,
+   0.06,
+   0.94,
+   0.94
+  ],
+  "tag": "FIG. 1"
+ },
+ {
+  "story": "s28",
+  "file": "us7832117-fig1.png",
+  "patent": "US7832117B2",
+  "page": 3,
+  "box": [
+   0.17,
+   0.18,
+   0.85,
+   0.92
+  ],
+  "tag": "FIG. 1"
+ },
+ {
+  "story": "s29",
+  "file": "us3733309-fig1.png",
+  "patent": "US3733309A",
+  "page": 1,
+  "box": [
+   0.235,
+   0.205,
+   0.695,
+   0.808
+  ],
+  "tag": "FIG. 1",
+  "inset": [
+   0,
+   0.014,
+   0,
+   0
+  ]
+ },
+ {
+  "story": "c23",
+  "file": "us465588-fig1.png",
+  "patent": "US465588A",
+  "page": 1,
+  "box": [
+   0.02,
+   0.06,
+   0.62,
+   0.6
+  ],
+  "tag": "FIG. 1"
+ },
+ {
+  "story": "c24",
+  "file": "us2292387-fig7.png",
+  "patent": "US2292387A",
+  "page": 2,
+  "box": [
+   0.05,
+   0.13,
+   0.95,
+   0.48
+  ],
+  "tag": "FIG. 7·4"
+ },
+ {
+  "story": "c25",
+  "file": "us3351836-fig1.png",
+  "patent": "US3351836A",
+  "page": 1,
+  "box": [
+   0.02,
+   0.03,
+   0.98,
+   0.36
+  ],
+  "tag": "FIG. 1"
+ },
+ {
+  "story": "c26",
+  "file": "us6281-fig1.png",
+  "patent": "US6281A",
+  "page": 1,
+  "box": [
+   0.095,
+   0.115,
+   0.885,
+   0.655
+  ],
+  "tag": "FIG. 1–8"
+ },
+ {
+  "story": "c27",
+  "file": "us4378116-fig1.png",
+  "patent": "US4378116A",
+  "page": 2,
+  "box": [
+   0.125,
+   0.1,
+   0.545,
+   0.352
+  ],
+  "tag": "FIG. 1"
+ },
+ {
+  "story": "c28",
+  "file": "us3285228-fig1.png",
+  "patent": "US3285228A",
+  "page": 1,
+  "box": [
+   0.14,
+   0.12,
+   0.6,
+   0.86
+  ],
+  "tag": "FIG. 1·2"
+ },
+ {
+  "story": "c29",
+  "file": "us2485039-fig2.png",
+  "patent": "US2485039A",
+  "page": 2,
+  "box": [
+   0.08,
+   0.115,
+   0.9,
+   0.78
+  ],
+  "tag": "FIG. 2·3"
+ }
+]

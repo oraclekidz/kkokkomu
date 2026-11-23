@@ -52,7 +52,7 @@ STORIES = [
    ("US D756,791 S1 「Bottle」 전문", "https://patents.google.com/patent/USD756791S1/en", "출원 2014. 10. 2 / 등록 2016. 5. 24, Kris Tomasson, The Coca-Cola Company"),
    ("US D48,160 (1915년 컨투어 병 디자인)", "https://patents.google.com/patent/USD48160S1/en", "1915년 등록된 원형 디자인 특허 — S7에서 다룬 사료"),
    ("The Coca-Cola Company, 『A Short History of Coca-Cola』 (125주년)", "https://www.coca-colacompany.com/content/dam/corporate/us/en/about-us/history/coca-cola-a-short-history-125-years-booklet.pdf", "1915년 공모와 디자인 특허, 1960년 상표 등록, 1993년 20온스 PET 컨투어 병")],
- "tail": ("그렇다면 특허라는 제도 자체는 언제 시작됐을까?",
-          "가장 오래된 기록은 1449년, 색유리 기술에 주어진 20년의 독점권이다. 그 문서에는 오늘날 특허의 원형이 되는 조건이 하나 붙어 있었다. 다음 이야기에서 이어진다."),
+ "tail": ("그렇다면 공장의 바코드 열 개를 한 번에 읽는 방법은 없을까?",
+          "1992년, 일본의 부품 회사가 두 사람에게 그 일을 맡겼다. 그들이 만든 네모에는 세 모서리에만 사각형이 붙어 있었다. 다음 이야기에서 이어진다."),
 },
 ]
