@@ -7,6 +7,8 @@
 data/
 tools/
 PROGRESS.md
+# 특허 도면 출처 정리(제작 메모). 사이트에는 노출하지 않는다.
+assets/patents/README.md
 .assetsignore
 .gitignore
 __pycache__/
