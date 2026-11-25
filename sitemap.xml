@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://rarasister.com/</loc><lastmod>2026-11-24</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://rarasister.com/</loc><lastmod>2026-11-25</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://rarasister.com/story</loc><lastmod>2026-11-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://rarasister.com/stories/s2</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://rarasister.com/stories/s3</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -19,6 +19,7 @@
   <url><loc>https://rarasister.com/stories/s16</loc><lastmod>2026-11-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://rarasister.com/stories/s17</loc><lastmod>2026-11-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://rarasister.com/stories/s18</loc><lastmod>2026-11-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://rarasister.com/stories/s19</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://rarasister.com/stories/c1</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://rarasister.com/stories/c2</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://rarasister.com/stories/c3</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -34,8 +35,8 @@
   <url><loc>https://rarasister.com/stories/c13</loc><lastmod>2026-11-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://rarasister.com/stories/c14</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://rarasister.com/stories/c15</loc><lastmod>2026-11-21</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://rarasister.com/about</loc><lastmod>2026-11-24</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://rarasister.com/contact</loc><lastmod>2026-11-24</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://rarasister.com/privacy</loc><lastmod>2026-11-24</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://rarasister.com/terms</loc><lastmod>2026-11-24</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://rarasister.com/about</loc><lastmod>2026-11-25</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://rarasister.com/contact</loc><lastmod>2026-11-25</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://rarasister.com/privacy</loc><lastmod>2026-11-25</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://rarasister.com/terms</loc><lastmod>2026-11-25</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
 </urlset>
